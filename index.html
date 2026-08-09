@@ -23,7 +23,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
@@ -44,8 +44,7 @@
                 "addressCountry": "ID"
             },
             "telephone": "+6289612368360",
-            "email": "novanesaputranpartners@gmail.com",
-            "openingHours": "Mo-Fr 08:00-17:00"
+            "email": "novanesaputranpartners@gmail.com"
         }
     </script>
 </head>
@@ -101,14 +100,8 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="beranda">
-        <!-- Hero Slider -->
-        <div class="hero-slider" id="heroSlider">
-            <div class="slide active">
-                <img src="Foto Tim.jpg" alt="Kantor Hukum" />
-            </div>
-            <div class="slide">
-                <img src="bg.jpg" alt="Kantor Hukum" />
-            </div>
+        <div class="hero-bg">
+            <img src="Foto Tim.jpg" alt="Kantor Hukum" />
         </div>
         <div class="hero-overlay"></div>
 
@@ -324,91 +317,93 @@
                 </p>
             </div>
 
-            <div class="practice-grid">
-                <div class="practice-item"><span class="num">01</span> <span data-id="Hukum Perikatan &amp; Hukum Benda" data-en="Law of Obligations &amp; Property Law">Hukum Perikatan &amp; Hukum Benda</span></div>
-                <div class="practice-item"><span class="num">02</span> <span data-id="Hukum Perdata Bisnis" data-en="Business Civil Law">Hukum Perdata Bisnis</span></div>
-                <div class="practice-item"><span class="num">03</span> <span data-id="Hukum Pidana" data-en="Criminal Law">Hukum Pidana</span></div>
-                <div class="practice-item"><span class="num">04</span> <span data-id="Hukum Administrasi &amp; Perijinan" data-en="Administrative Law &amp; Licensing">Hukum Administrasi &amp; Perijinan</span></div>
-                <div class="practice-item"><span class="num">05</span> <span data-id="Hukum Perseroan / Perusahaan" data-en="Corporate Law">Hukum Perseroan / Perusahaan</span></div>
-                <div class="practice-item"><span class="num">06</span> <span data-id="Hukum Kepailitan &amp; PKPU" data-en="Bankruptcy &amp; PKPU Law">Hukum Kepailitan &amp; PKPU</span></div>
-                <div class="practice-item"><span class="num">07</span> <span data-id="Hak Atas Kekayaan Intelektual" data-en="Intellectual Property Rights">Hak Atas Kekayaan Intelektual</span></div>
-                <div class="practice-item"><span class="num">08</span> <span data-id="Hukum Pertanahan" data-en="Land Law">Hukum Pertanahan</span></div>
-                <div class="practice-item"><span class="num">09</span> <span data-id="Hukum Perbankan &amp; Pembiayaan" data-en="Banking &amp; Financing Law">Hukum Perbankan &amp; Pembiayaan</span></div>
-                <div class="practice-item"><span class="num">10</span> <span data-id="Hukum Perlindungan Konsumen" data-en="Consumer Protection Law">Hukum Perlindungan Konsumen</span></div>
-                <div class="practice-item"><span class="num">11</span> <span data-id="Hukum Penanaman Modal" data-en="Investment Law">Hukum Penanaman Modal</span></div>
-                <div class="practice-item"><span class="num">12</span> <span data-id="Hukum Dagang &amp; Pengangkutan" data-en="Commercial &amp; Transportation Law">Hukum Dagang &amp; Pengangkutan</span></div>
-                <div class="practice-item"><span class="num">13</span> <span data-id="Hukum Persaingan Usaha" data-en="Business Competition Law">Hukum Persaingan Usaha</span></div>
-                <div class="practice-item"><span class="num">14</span> <span data-id="Hukum Perburuhan / Ketenagakerjaan" data-en="Labor / Employment Law">Hukum Perburuhan / Ketenagakerjaan</span></div>
-                <div class="practice-item"><span class="num">15</span> <span data-id="Hukum Waris" data-en="Inheritance Law">Hukum Waris</span></div>
-                <div class="practice-item"><span class="num">16</span> <span data-id="Penyelesaian Sengketa Alternatif" data-en="Alternative Dispute Resolution">Penyelesaian Sengketa Alternatif</span></div>
+            <div class="practice-grid" id="practiceGrid">
+                <!-- Akan di-generate oleh JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- ===== TEAM ===== -->
-    <section class="team" id="tim">
-        <div class="container">
-            <div class="section-center animate-on-scroll">
-                <span class="section-label"><span data-id="Tim Advokat" data-en="Our Lawyers">Tim Advokat</span></span>
-                <h2 class="section-title"><span data-id="Jajaran Advokat Profesional" data-en="Professional Lawyers Team">Jajaran Advokat Profesional</span></h2>
-                <p class="section-subtitle" data-id="Didukung oleh advokat-advokat berpengalaman dan berlisensi PERADI yang siap memberikan layanan hukum terbaik untuk Anda."
-                   data-en="Supported by experienced and PERADI licensed advocates who are ready to provide the best legal services for you.">
-                    Didukung oleh advokat-advokat berpengalaman dan berlisensi PERADI
-                    yang siap memberikan layanan hukum terbaik untuk Anda.
-                </p>
+   <!-- ===== TEAM ===== -->
+<section class="team" id="tim">
+    <div class="container">
+        <div class="section-center animate-on-scroll">
+            <span class="section-label"><span data-id="Tim Advokat" data-en="Our Lawyers">Tim Advokat</span></span>
+            <h2 class="section-title"><span data-id="Jajaran Advokat Profesional" data-en="Professional Lawyers Team">Jajaran Advokat Profesional</span></h2>
+            <p class="section-subtitle" data-id="Didukung oleh advokat-advokat berpengalaman dan berlisensi PERADI yang siap memberikan layanan hukum terbaik untuk Anda."
+               data-en="Supported by experienced and PERADI licensed advocates who are ready to provide the best legal services for you.">
+                Didukung oleh advokat-advokat berpengalaman dan berlisensi PERADI
+                yang siap memberikan layanan hukum terbaik untuk Anda.
+            </p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card animate-on-scroll delay-1" data-foto="Novan Edi Saputra.png">
+                <div class="team-image">
+                    <img src="Novan Edi Saputra.png" alt="NOVAN EDI SAPUTRA, S.H., M.H." />
+                    <div class="team-image-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>NOVAN EDI SAPUTRA, S.H., M.H.</h3>
+                    <div class="position">Managing Partner</div>
+                    <div class="badge-peradi">PERADI NIA: 13.00309</div>
+                    <div class="expertise"><span data-id="Hukum Pidana Korporasi, Hukum Perjanjian Kredit dan Jaminan, Hukum Dagang, Hukum Persaingan Usaha, Hukum Pasar Modal" data-en="Corporate Criminal Law, Credit Agreement and Security Law, Commercial Law, Business Competition Law, Capital Market Law">Hukum Pidana Korporasi, Hukum Perjanjian Kredit dan Jaminan, Hukum Dagang, Hukum Persaingan Usaha, Hukum Pasar Modal</span></div>
+                    <a href="#" class="team-profile-link" onclick="openPhotoModal('Novan Edi Saputra.png', 'NOVAN EDI SAPUTRA, S.H., M.H.', 'Managing Partner')">Lihat Profil →</a>
+                </div>
             </div>
 
-            <div class="team-grid">
-                <div class="team-card animate-on-scroll delay-1">
-                    <div class="team-image">
-                        <img src="Novan Edi Saputra.png" alt="NOVAN EDI SAPUTRA, S.H., M.H." />
-                    </div>
-                    <div class="team-info">
-                        <h3>NOVAN EDI SAPUTRA, S.H., M.H.</h3>
-                        <div class="position"><span data-id="Founder, Advisor, &amp; Senior Lawyers" data-en="Founder, Advisor, &amp; Senior Lawyers">Founder, Advisor, &amp; Senior Lawyers</span></div>
-                        <div class="expertise"><span data-id="Hukum Pidana Korporasi, Hukum Perjanjian Kredit dan Jaminan, Hukum Dagang, Hukum Persaingan Usaha, Hukum Pasar Modal" data-en="Corporate Criminal Law, Credit Agreement and Security Law, Commercial Law, Business Competition Law, Capital Market Law">Hukum Pidana Korporasi, Hukum Perjanjian Kredit dan Jaminan, Hukum Dagang, Hukum Persaingan Usaha, Hukum Pasar Modal</span></div>
-                        <span class="badge-peradi">PERADI NIA: 13.00309</span>
+            <div class="team-card animate-on-scroll delay-2" data-foto="Ahadin Al Farobi Aminulloh.png">
+                <div class="team-image">
+                    <img src="Ahadin Al Farobi Aminulloh.png" alt="AHADIN AL FAROBI AMINULLOH, S.H., M.H." />
+                    <div class="team-image-overlay">
+                        <span>Klik untuk perbesar</span>
                     </div>
                 </div>
+                <div class="team-info">
+                    <h3>AHADIN AL FAROBI AMINULLOH, S.H., M.H.</h3>
+                    <div class="position">Lawyers</div>
+                    <div class="badge-peradi">PERADI NIA: —</div>
+                    <div class="expertise">—</div>
+                    <a href="#" class="team-profile-link" onclick="openPhotoModal('Ahadin Al Farobi Aminulloh.png', 'AHADIN AL FAROBI AMINULLOH, S.H., M.H.', 'Lawyers')">Lihat Profil →</a>
+                </div>
+            </div>
 
-                <div class="team-card animate-on-scroll delay-2">
-                    <div class="team-image">
-                        <img src="Ahadin Al Farobi Aminulloh.png" alt="AHADIN AL FAROBI AMINULLOH, S.H., M.H." />
-                    </div>
-                    <div class="team-info">
-                        <h3>AHADIN AL FAROBI AMINULLOH, S.H., M.H.</h3>
-                        <div class="position"><span data-id="Lawyers" data-en="Lawyers">Lawyers</span></div>
-                        <div class="expertise">—</div>
-                        <span class="badge-peradi">PERADI NIA: —</span>
+            <div class="team-card animate-on-scroll delay-3" data-foto="Septian Dwi Nurcahyo.png">
+                <div class="team-image">
+                    <img src="Septian Dwi Nurcahyo.png" alt="SEPTIAN DWI NURCAHYO, S.H." />
+                    <div class="team-image-overlay">
+                        <span>Klik untuk perbesar</span>
                     </div>
                 </div>
+                <div class="team-info">
+                    <h3>SEPTIAN DWI NURCAHYO, S.H.</h3>
+                    <div class="position">Lawyers</div>
+                    <div class="badge-peradi">PERADI NIA: —</div>
+                    <div class="expertise">—</div>
+                    <a href="#" class="team-profile-link" onclick="openPhotoModal('Septian Dwi Nurcahyo.png', 'SEPTIAN DWI NURCAHYO, S.H.', 'Lawyers')">Lihat Profil →</a>
+                </div>
+            </div>
 
-                <div class="team-card animate-on-scroll delay-3">
-                    <div class="team-image">
-                        <img src="Septian Dwi Nurcahyo.png" alt="SEPTIAN DWI NURCAHYO, S.H." />
-                    </div>
-                    <div class="team-info">
-                        <h3>SEPTIAN DWI NURCAHYO, S.H.</h3>
-                        <div class="position"><span data-id="Lawyers" data-en="Lawyers">Lawyers</span></div>
-                        <div class="expertise">—</div>
-                        <span class="badge-peradi">PERADI NIA: —</span>
+            <div class="team-card animate-on-scroll delay-4" data-foto="M. Zidhan.png">
+                <div class="team-image">
+                    <img src="M. Zidhan.png" alt="M. ZIDHAN, S.H." />
+                    <div class="team-image-overlay">
+                        <span>Klik untuk perbesar</span>
                     </div>
                 </div>
-
-                <div class="team-card animate-on-scroll delay-4">
-                    <div class="team-image">
-                        <img src="M. Zidhan.png" alt="M. ZIDHAN, S.H." />
-                    </div>
-                    <div class="team-info">
-                        <h3>M. ZIDHAN, S.H.</h3>
-                        <div class="position"><span data-id="Partners" data-en="Partners">Partners</span></div>
-                        <div class="expertise">—</div>
-                        <span class="badge-peradi">PERADI NIA: —</span>
-                    </div>
+                <div class="team-info">
+                    <h3>M. ZIDHAN, S.H.</h3>
+                    <div class="position">Partners</div>
+                    <div class="badge-peradi">PERADI NIA: —</div>
+                    <div class="expertise">—</div>
+                    <a href="#" class="team-profile-link" onclick="openPhotoModal('M. Zidhan.png', 'M. ZIDHAN, S.H.', 'Partners')">Lihat Profil →</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ===== EXPERIENCE ===== -->
     <section class="experience" id="pengalaman">
@@ -433,10 +428,20 @@
             <div class="experience-grid" id="experienceGrid"></div>
 
             <div class="experience-load-more">
-                <button class="btn btn-dark" id="loadMoreBtn"><span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span></button>
+                <button class="btn btn-dark" id="loadMoreBtn"><span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span> →</button>
             </div>
         </div>
     </section>
+
+    <!-- ===== MODAL POP-UP ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content" id="modalContent">
+                <!-- Isi akan di-generate oleh JavaScript -->
+            </div>
+        </div>
+    </div>
 
     <!-- ===== LEGAL FEES ===== -->
     <section class="fees" id="biaya">
@@ -481,6 +486,20 @@
             </div>
         </div>
     </section>
+
+    <!-- ===== MODAL FOTO POP-UP ===== -->
+<div class="modal-overlay" id="photoModalOverlay">
+    <div class="modal-box photo-modal-box">
+        <button class="modal-close" id="photoModalClose">&times;</button>
+        <div class="photo-modal-content" id="photoModalContent">
+            <img id="photoModalImage" src="" alt="Foto Advokat" />
+            <div class="photo-modal-info">
+                <h3 id="photoModalName"></h3>
+                <p id="photoModalPosition"></p>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- ===== CONTACT ===== -->
     <section class="contact" id="kontak">
@@ -581,6 +600,11 @@
                         <li><a href="tel:+6289612368360">0896-1236-8360</a></li>
                         <li><a href="mailto:novanesaputranpartners@gmail.com">novanesaputranpartners@gmail.com</a></li>
                     </ul>
+                    <div class="footer-social" style="margin-top: 16px;">
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="YouTube">YouTube</a>
+                    </div>
                 </div>
             </div>
 
