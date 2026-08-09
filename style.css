@@ -12,22 +12,20 @@
 :root {
     --primary: #021a7d;
     --primary-light: #2e36e6;
-    --secondary: #c9a84c;
-    --secondary-light: #dbb95a;
     --white: #ffffff;
-    --gray-50: #f8f7f4;
-    --gray-100: #f0eee8;
-    --gray-200: #e0ddd4;
-    --gray-300: #c5c0b5;
-    --gray-400: #a8a296;
-    --gray-500: #8a8478;
-    --gray-600: #6b655a;
-    --gray-700: #4d4840;
-    --gray-800: #2f2b26;
-    --gray-900: #1a1714;
-    --shadow-sm: 0 2px 8px rgba(2, 26, 125, 0.06);
-    --shadow-md: 0 8px 30px rgba(2, 26, 125, 0.10);
-    --shadow-lg: 0 20px 60px rgba(2, 26, 125, 0.15);
+    --gray-50: #f8f9fa;
+    --gray-100: #f1f3f5;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    --shadow-sm: 0 2px 8px rgba(46, 54, 230, 0.06);
+    --shadow-md: 0 8px 30px rgba(46, 54, 230, 0.10);
+    --shadow-lg: 0 20px 60px rgba(46, 54, 230, 0.15);
     --radius: 12px;
     --radius-lg: 20px;
     --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -39,7 +37,7 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--white);
+    background: #2e36e6;
     color: var(--gray-800);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -68,40 +66,88 @@ ul {
 }
 
 /* ============================================================
-   LANGUAGE TOGGLE
+   FONTS
    ============================================================ */
-.lang-toggle {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    margin-left: 8px;
+h1, h2, h3, .section-title, .brand-name {
+    font-family: 'DM Serif Display', serif;
 }
 
-.lang-toggle button {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 600;
-    font-size: 0.75rem;
-    cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: all var(--transition);
-    font-family: 'Inter', sans-serif;
+/* ============================================================
+   LANGUAGE DROPDOWN
+   ============================================================ */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.lang-toggle button.active {
-    color: var(--white);
+.lang-btn {
     background: rgba(255, 255, 255, 0.1);
-}
-
-.lang-toggle button:hover {
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--white);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    transition: all var(--transition);
 }
 
-.lang-toggle .divider {
-    color: rgba(255, 255, 255, 0.2);
-    font-size: 0.75rem;
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lang-arrow {
+    transition: transform var(--transition);
+}
+
+.lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    min-width: 160px;
+    padding: 6px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all var(--transition);
+    z-index: 100;
+}
+
+.lang-dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all var(--transition);
+}
+
+.lang-option:hover {
+    background: var(--gray-100);
+}
+
+.lang-option.active {
+    color: var(--primary-light);
+    background: rgba(46, 54, 230, 0.08);
 }
 
 /* ============================================================
@@ -120,16 +166,17 @@ ul {
     transition: all var(--transition);
     text-align: center;
     line-height: 1.2;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-primary {
-    background: var(--secondary);
-    color: var(--primary);
+    background: var(--white);
+    color: var(--primary-light);
 }
 .btn-primary:hover {
-    background: var(--secondary-light);
+    background: rgba(255, 255, 255, 0.9);
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(201, 168, 76, 0.35);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
 }
 
 .btn-outline {
@@ -178,6 +225,13 @@ ul {
     }
 }
 
+@keyframes slideFade {
+    0% { opacity: 0; transform: scale(1.05); }
+    10% { opacity: 1; transform: scale(1); }
+    90% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.05); }
+}
+
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(40px);
@@ -217,7 +271,7 @@ ul {
 }
 
 .navbar.scrolled {
-    background: rgba(2, 26, 125, 0.95);
+    background: rgba(46, 54, 230, 0.95);
     backdrop-filter: blur(16px);
     padding: 10px 0;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -244,18 +298,20 @@ ul {
 .navbar-brand .brand-text {
     color: var(--white);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: -0.5px;
     line-height: 1.2;
+    font-family: 'DM Serif Display', serif;
 }
 
 .navbar-brand .brand-text small {
     display: block;
     font-weight: 400;
-    font-size: 0.55rem;
+    font-size: 0.5rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.5);
+    font-family: 'Inter', sans-serif;
 }
 
 .nav-menu {
@@ -270,6 +326,7 @@ ul {
     font-weight: 500;
     transition: color var(--transition);
     position: relative;
+    font-family: 'Inter', sans-serif;
 }
 
 .nav-menu a::after {
@@ -279,7 +336,7 @@ ul {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--secondary);
+    background: var(--white);
     transition: width var(--transition);
 }
 
@@ -348,31 +405,44 @@ ul {
 }
 
 /* ============================================================
-   HERO - Full Width (Tanpa Visual Card)
+   HERO SLIDER
    ============================================================ */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: var(--primary);
     position: relative;
     overflow: hidden;
     padding: 120px 0 80px;
 }
 
-.hero::before {
-    content: '';
+.hero-slider {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(2, 26, 125, 0.95) 0%, rgba(46, 54, 230, 0.8) 50%, rgba(2, 26, 125, 0.95) 100%);
-    z-index: 1;
+    z-index: 0;
 }
 
-.hero::after {
-    content: '';
+.hero-slider .slide {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 80% 50%, rgba(201, 168, 76, 0.06), transparent 60%);
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+}
+
+.hero-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(46, 54, 230, 0.75);
     z-index: 1;
 }
 
@@ -381,6 +451,7 @@ ul {
     z-index: 2;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .hero-content {
@@ -393,21 +464,22 @@ ul {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(201, 168, 76, 0.15);
-    border: 1px solid rgba(201, 168, 76, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 6px 16px;
     border-radius: 50px;
     font-size: 0.8rem;
     font-weight: 500;
-    color: var(--secondary-light);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 24px;
     letter-spacing: 0.3px;
+    font-family: 'Inter', sans-serif;
 }
 
 .hero-badge .dot {
     width: 6px;
     height: 6px;
-    background: var(--secondary);
+    background: #4ade80;
     border-radius: 50%;
     animation: pulse-dot 2s infinite;
 }
@@ -430,22 +502,12 @@ ul {
     line-height: 1.1;
     letter-spacing: -2px;
     margin-bottom: 20px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .hero h1 .highlight {
-    color: var(--secondary);
+    color: #ffd700;
     position: relative;
-}
-
-.hero h1 .highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: rgba(201, 168, 76, 0.25);
-    border-radius: 4px;
 }
 
 .hero p {
@@ -454,6 +516,7 @@ ul {
     max-width: 700px;
     margin: 0 auto 32px;
     line-height: 1.8;
+    font-family: 'Inter', sans-serif;
 }
 
 .hero-buttons {
@@ -461,32 +524,46 @@ ul {
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
-    margin-bottom: 48px;
 }
 
-.hero-stats {
-    display: flex;
-    gap: 48px;
-    justify-content: center;
-    padding-top: 32px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+/* ============================================================
+   STATISTIK SECTION
+   ============================================================ */
+.stats-section {
+    background: var(--white);
+    padding: 60px 0;
+    border-bottom: 1px solid var(--gray-200);
 }
 
-.hero-stats .stat {
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
     text-align: center;
 }
 
-.hero-stats .stat .number {
-    font-size: 2rem;
+.stat-item .stat-number {
+    font-size: 3rem;
     font-weight: 800;
-    color: var(--white);
-    letter-spacing: -1px;
+    color: var(--primary-light);
+    font-family: 'DM Serif Display', serif;
+    line-height: 1.2;
 }
 
-.hero-stats .stat .label {
+.stat-item .stat-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-top: 4px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-item .stat-desc {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-top: 2px;
+    color: var(--gray-500);
+    font-family: 'Inter', sans-serif;
 }
 
 /* ============================================================
@@ -498,8 +575,9 @@ ul {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--secondary);
+    color: var(--primary-light);
     margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
 }
 
 .section-title {
@@ -509,6 +587,7 @@ ul {
     line-height: 1.15;
     letter-spacing: -1px;
     margin-bottom: 16px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .section-subtitle {
@@ -516,6 +595,7 @@ ul {
     color: var(--gray-600);
     max-width: 600px;
     line-height: 1.7;
+    font-family: 'Inter', sans-serif;
 }
 
 .section-center {
@@ -573,10 +653,12 @@ ul {
 .about-image .about-badge strong {
     display: block;
     font-size: 1.2rem;
+    font-family: 'DM Serif Display', serif;
 }
 .about-image .about-badge small {
     font-size: 0.75rem;
     opacity: 0.7;
+    font-family: 'Inter', sans-serif;
 }
 
 .about-content .about-benefits {
@@ -593,10 +675,11 @@ ul {
     font-weight: 500;
     color: var(--gray-700);
     font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
 }
 
 .about-content .benefit-item .check {
-    color: var(--secondary);
+    color: var(--primary-light);
     font-weight: 700;
     font-size: 1.1rem;
 }
@@ -633,7 +716,7 @@ ul {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--secondary);
+    background: var(--primary-light);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform var(--transition);
@@ -660,12 +743,14 @@ ul {
     font-weight: 800;
     color: var(--primary);
     margin-bottom: 12px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .visimisi-card p {
     color: var(--gray-600);
     line-height: 1.8;
     font-size: 1rem;
+    font-family: 'Inter', sans-serif;
 }
 
 .visimisi-card ul {
@@ -681,10 +766,11 @@ ul {
     color: var(--gray-700);
     font-size: 0.95rem;
     line-height: 1.6;
+    font-family: 'Inter', sans-serif;
 }
 
 .visimisi-card ul li .check {
-    color: var(--secondary);
+    color: var(--primary-light);
     font-weight: 700;
     font-size: 1.1rem;
     flex-shrink: 0;
@@ -724,7 +810,7 @@ ul {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--secondary);
+    background: var(--primary-light);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform var(--transition);
@@ -752,12 +838,14 @@ ul {
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 8px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .service-card p {
     color: var(--gray-600);
     font-size: 0.95rem;
     line-height: 1.6;
+    font-family: 'Inter', sans-serif;
 }
 
 .service-card .sub-services {
@@ -774,6 +862,7 @@ ul {
     font-size: 0.7rem;
     font-weight: 500;
     color: var(--gray-700);
+    font-family: 'Inter', sans-serif;
 }
 
 /* ============================================================
@@ -803,17 +892,18 @@ ul {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-family: 'Inter', sans-serif;
 }
 
 .practice-item:hover {
-    border-color: var(--secondary);
+    border-color: var(--primary-light);
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
     color: var(--primary);
 }
 
 .practice-item .num {
-    color: var(--secondary);
+    color: var(--primary-light);
     font-weight: 700;
     font-size: 0.8rem;
     min-width: 24px;
@@ -873,19 +963,22 @@ ul {
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 4px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .team-card .team-info .position {
     font-size: 0.85rem;
-    color: var(--secondary);
+    color: var(--primary-light);
     font-weight: 600;
     margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
 }
 
 .team-card .team-info .expertise {
     font-size: 0.82rem;
     color: var(--gray-600);
     line-height: 1.5;
+    font-family: 'Inter', sans-serif;
 }
 
 .team-card .team-info .badge-peradi {
@@ -898,6 +991,7 @@ ul {
     font-weight: 600;
     color: var(--gray-700);
     letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
 }
 
 /* ============================================================
@@ -948,6 +1042,7 @@ ul {
     border-radius: var(--radius);
     border: 1px solid var(--gray-200);
     transition: all var(--transition);
+    font-family: 'Inter', sans-serif;
 }
 
 .experience-card:hover {
@@ -1005,7 +1100,7 @@ ul {
     margin-top: 8px;
     font-weight: 600;
     font-size: 0.85rem;
-    color: var(--secondary);
+    color: var(--primary-light);
 }
 
 .experience-load-more {
@@ -1029,7 +1124,7 @@ ul {
     color: rgba(255, 255, 255, 0.6);
 }
 .fees .section-label {
-    color: var(--secondary);
+    color: #ffd700;
 }
 
 .fees-grid {
@@ -1063,12 +1158,14 @@ ul {
     font-weight: 700;
     color: var(--white);
     margin-bottom: 8px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .fees-card p {
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.95rem;
     line-height: 1.7;
+    font-family: 'Inter', sans-serif;
 }
 
 .fees-card ul {
@@ -1082,10 +1179,11 @@ ul {
     display: flex;
     align-items: flex-start;
     gap: 8px;
+    font-family: 'Inter', sans-serif;
 }
 
 .fees-card ul li .check {
-    color: var(--secondary);
+    color: #ffd700;
     font-weight: 700;
 }
 
@@ -1120,6 +1218,7 @@ ul {
 .contact-info .contact-item .text {
     font-size: 0.95rem;
     color: var(--gray-700);
+    font-family: 'Inter', sans-serif;
 }
 .contact-info .contact-item .text strong {
     color: var(--primary);
@@ -1158,7 +1257,7 @@ ul {
     left: -20%;
     width: 60%;
     height: 200%;
-    background: radial-gradient(ellipse, rgba(201, 168, 76, 0.06), transparent 70%);
+    background: radial-gradient(ellipse, rgba(255, 215, 0, 0.06), transparent 70%);
     pointer-events: none;
 }
 
@@ -1171,6 +1270,7 @@ ul {
     max-width: 700px;
     margin: 0 auto 16px;
     position: relative;
+    font-family: 'DM Serif Display', serif;
 }
 
 .cta-section p {
@@ -1179,6 +1279,7 @@ ul {
     max-width: 500px;
     margin: 0 auto 32px;
     position: relative;
+    font-family: 'Inter', sans-serif;
 }
 
 .cta-section .btn-group {
@@ -1215,6 +1316,7 @@ ul {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--white);
+    font-family: 'DM Serif Display', serif;
 }
 .footer-brand .logo-text small {
     display: block;
@@ -1223,6 +1325,7 @@ ul {
     color: rgba(255, 255, 255, 0.4);
     letter-spacing: 1px;
     text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
 }
 
 .footer-brand p {
@@ -1230,6 +1333,7 @@ ul {
     margin-top: 12px;
     max-width: 280px;
     line-height: 1.7;
+    font-family: 'Inter', sans-serif;
 }
 
 .footer h4 {
@@ -1237,6 +1341,7 @@ ul {
     font-weight: 700;
     font-size: 0.95rem;
     margin-bottom: 16px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .footer ul li {
@@ -1245,9 +1350,10 @@ ul {
 .footer ul li a {
     font-size: 0.9rem;
     transition: color var(--transition);
+    font-family: 'Inter', sans-serif;
 }
 .footer ul li a:hover {
-    color: var(--secondary);
+    color: #ffd700;
 }
 
 .footer-contact li {
@@ -1255,6 +1361,7 @@ ul {
     align-items: center;
     gap: 10px;
     font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
 }
 
 .footer-bottom {
@@ -1265,13 +1372,14 @@ ul {
     flex-wrap: wrap;
     gap: 16px;
     font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
 }
 
 .footer-bottom a {
     transition: color var(--transition);
 }
 .footer-bottom a:hover {
-    color: var(--secondary);
+    color: #ffd700;
 }
 
 .footer-social {
@@ -1290,8 +1398,8 @@ ul {
     font-size: 1.1rem;
 }
 .footer-social a:hover {
-    border-color: var(--secondary);
-    background: var(--secondary);
+    border-color: #ffd700;
+    background: #ffd700;
     color: var(--primary);
 }
 
@@ -1311,7 +1419,6 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     transition: all var(--transition);
     border: none;
@@ -1322,6 +1429,12 @@ ul {
 .wa-float:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+}
+
+.wa-float svg {
+    width: 32px;
+    height: 32px;
+    display: block;
 }
 
 /* ============================================================
@@ -1351,6 +1464,11 @@ ul {
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
 }
 
@@ -1383,7 +1501,7 @@ ul {
         margin-left: 0;
     }
 
-    .lang-toggle {
+    .lang-dropdown {
         margin-left: 0;
     }
 
@@ -1402,14 +1520,6 @@ ul {
     }
     .hero p {
         font-size: 1rem;
-    }
-
-    .hero-stats {
-        gap: 24px;
-        flex-wrap: wrap;
-    }
-    .hero-stats .stat .number {
-        font-size: 1.5rem;
     }
 
     .about-content .about-benefits {
@@ -1456,9 +1566,20 @@ ul {
     .wa-float {
         width: 50px;
         height: 50px;
-        font-size: 1.6rem;
         bottom: 20px;
         right: 20px;
+    }
+    .wa-float svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .stat-item .stat-number {
+        font-size: 2.2rem;
     }
 }
 
@@ -1509,9 +1630,12 @@ ul {
     .wa-float {
         width: 44px;
         height: 44px;
-        font-size: 1.3rem;
         bottom: 16px;
         right: 16px;
+    }
+    .wa-float svg {
+        width: 22px;
+        height: 22px;
     }
 
     .experience-filters {
@@ -1520,5 +1644,19 @@ ul {
     .experience-filters button {
         padding: 6px 14px;
         font-size: 0.75rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .stat-item .stat-number {
+        font-size: 1.8rem;
+    }
+    .stat-item .stat-label {
+        font-size: 0.8rem;
+    }
+    .stat-item .stat-desc {
+        font-size: 0.7rem;
     }
 }
