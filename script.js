@@ -153,8 +153,8 @@ function renderCases(filter = 'all', limit = 6) {
         loadMoreBtn.style.display = 'none';
     } else {
         loadMoreBtn.style.display = 'inline-flex';
-        const remaining = filtered.length - limit;
-        loadMoreBtn.innerHTML = `<span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus (${remaining} lagi)</span> →`;
+        // HAPUS TULISAN "50 lagi" - hanya tampilkan "Lihat Semua Kasus"
+        loadMoreBtn.innerHTML = `<span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span> →`;
         loadMoreBtn.onclick = () => renderCases(filter, filtered.length);
     }
 }
@@ -214,8 +214,6 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
 });
 
-
-
 // ============================================================
 // PHOTO MODAL POP-UP FUNGSI
 // ============================================================
@@ -260,16 +258,6 @@ document.querySelectorAll('.team-card .team-image').forEach(image => {
     });
 });
 
-// ============================================================
-// KEYBOARD NAV UNTUK PHOTO MODAL
-// ============================================================
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        if (photoModalOverlay && photoModalOverlay.classList.contains('active')) {
-            closePhotoModal();
-        }
-    }
-});
 // ============================================================
 // FILTER KASUS
 // ============================================================
@@ -481,7 +469,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // KEYBOARD NAV
 // ============================================================
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('open')) toggleMenu();
+    if (e.key === 'Escape') {
+        if (navMenu.classList.contains('open')) toggleMenu();
+        if (photoModalOverlay && photoModalOverlay.classList.contains('active')) closePhotoModal();
+        if (modalOverlay && modalOverlay.classList.contains('active')) closeModal();
+    }
 });
 
 console.log('NOVAN & PARTNERS — Website Company Profile');
