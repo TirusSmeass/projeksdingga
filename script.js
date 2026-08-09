@@ -1,99 +1,112 @@
-// ===== DATA KASUS =====
+// ============================================================
+// DATA KASUS (56 Data dari Word)
+// ============================================================
 const cases = [
-    { nomor: "2190/Pdt.G/2012/PA.Sby", jenis: "Eksekusi Tanah dan Bangunan", tahun: "2012", status: "selesai",
-        hasil: "Menang (Pemohon Eksekusi)" },
-    { nomor: "535/Pdt.G/2013/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2013", status: "selesai",
-        hasil: "Menang / Berkekuatan Hukum Tetap" },
-    { nomor: "LP/885/B/VIII/2013/Restabes Sby", jenis: "Hukum Pidana", tahun: "2013", status: "selesai",
-        hasil: "Gelar Perkara" },
-    { nomor: "5945/Pdt.G/2014/PA.Sby", jenis: "Perlawanan", tahun: "2014", status: "selesai", hasil: "Menang" },
-    { nomor: "98/Pdt.G/2014/PN.Jmr", jenis: "Perbuatan Melanggar Hukum", tahun: "2014", status: "banding",
-        hasil: "Upaya Hukum Banding" },
-    { nomor: "190/Pdt.G/2014/PN.Sby", jenis: "Wanprestasi", tahun: "2014", status: "selesai", hasil: "Menang" },
-    { nomor: "472/Pdt.G/2014/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2014", status: "selesai",
-        hasil: "Dading/Damai" },
-    { nomor: "22/Pdt.G/2015/PN.JBG", jenis: "Perbuatan Melanggar Hukum", tahun: "2015", status: "banding",
-        hasil: "Upaya Hukum Banding" },
-    { nomor: "36/Pdt.G/2015/PN.Sbr", jenis: "Perbuatan Melanggar Hukum", tahun: "2015", status: "selesai",
-        hasil: "Menang" },
-    { nomor: "50/Pdt.G/2015/PN.JBG", jenis: "Wanprestasi", tahun: "2015", status: "selesai", hasil: "Dading/Damai" },
-    { nomor: "110/G/2015/PTUN.Sby", jenis: "Sengketa Tanah", tahun: "2015", status: "banding",
-        hasil: "Upaya Hukum Banding" },
-    { nomor: "231/Pdt.G/2015/PTA.Sby", jenis: "Sengketa Waris/Perlawanan", tahun: "2015", status: "selesai",
-        hasil: "Menang" },
-    { nomor: "LP/215/V/2015/Jatim/Res JBG", jenis: "Hukum Pidana", tahun: "2015", status: "selesai",
-        hasil: "Damai/SP3" },
-    { nomor: "LPB/1380/IX/2015/UM/Jatim", jenis: "Hukum Pidana", tahun: "2015", status: "proses",
-        hasil: "Dalam Pemeriksaan Penyidik" },
-    { nomor: "LPB/1404/IX/2015/UM/Jatim", jenis: "Hukum Pidana", tahun: "2015", status: "selesai", hasil: "SP3" },
-    { nomor: "07/PDT/2016/PT.Sby", jenis: "Wanprestasi", tahun: "2016", status: "selesai", hasil: "Menang" },
-    { nomor: "176/PDT/2016/PT.BDG", jenis: "Wanprestasi", tahun: "2016", status: "selesai", hasil: "Menang" },
-    { nomor: "Lutfi Herdyansah", jenis: "Hukum Perbankan", tahun: "2016", status: "selesai", hasil: "Klaim Nasabah" },
-    { nomor: "CV. Logam Abadi", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan", hasil: "Konsultan" },
-    { nomor: "PT. Barokta Fina", jenis: "Hukum Perseroan", tahun: "2016", status: "berjalan",
-    hasil: "Konsultan Hukum" },
-    { nomor: "Yayasan Kyai Mojo", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan",
-    hasil: "Konsultan Hukum" },
-    { nomor: "PT. Chal Jaya", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan", hasil: "Konsultan Hukum" },
-    { nomor: "PT. BPRS Kota Mojokerto", jenis: "Somasi, Non Litigasi, Litigasi, Sengketa Ekonomi Syariah",
-        tahun: "2016", status: "berjalan", hasil: "Penyelesaian Sengketa Kredit" },
-    { nomor: "PT. BMH Technologies (PMA)", jenis: "Legal Opinion", tahun: "2016", status: "selesai",
-        hasil: "Konsultasi" },
-    { nomor: "Kiyoyuki Takeda (PMA)", jenis: "Legal Opinion -- Legal Audit", tahun: "2016", status: "selesai",
-        hasil: "Konsultasi" },
-    { nomor: "CV. Prima Karya", jenis: "Legal Opinion", tahun: "2016", status: "selesai", hasil: "Konsultasi" },
-    { nomor: "Ny. Sriyatun", jenis: "Somasi", tahun: "2016", status: "selesai", hasil: "Advokasi" },
-    { nomor: "K/LP/275/XII/2016/Jatim/SPK", jenis: "Hukum Pidana", tahun: "2016", status: "selesai", hasil: "SP3" },
-    { nomor: "3339 K/PDT/2016", jenis: "Hukum Perdata", tahun: "2016", status: "proses", hasil: "Pemeriksaan Kasasi" },
-    { nomor: "301 K/AG/2016", jenis: "Hukum Waris", tahun: "2016", status: "selesai", hasil: "Menang" },
-    { nomor: "214/PDT/2016/PT.Sby", jenis: "Hukum Perdata", tahun: "2016", status: "proses",
-        hasil: "Pemeriksaan Banding" },
-    { nomor: "13/Pdt.G/2017/PN.Bil", jenis: "Hukum Perbankan", tahun: "2017", status: "selesai",
-        hasil: "Damai (dengan LPS)" },
-    { nomor: "M. Lutfi Shofiq, Dkk", jenis: "Hukum Perdata -- Agraria", tahun: "2017", status: "banding",
-        hasil: "Upaya Hukum Banding" },
-    { nomor: "LPB/239/II/2017/UM/Jatim", jenis: "Hukum Pidana", tahun: "2017", status: "proses",
-        hasil: "Pemeriksaan" },
-    { nomor: "LPB/271/III/2017/UM/Jatim", jenis: "Hukum Pidana", tahun: "2017", status: "proses",
-        hasil: "Pemeriksaan" },
-    { nomor: "627/Pdt.G/2017/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2017", status: "proses",
-        hasil: "Pemeriksaan" },
-    { nomor: "LP/83/V/2017/Jatim/Res.SPG", jenis: "Hukum Pidana", tahun: "2017", status: "selesai",
-        hasil: "Gelar Perkara" },
-    { nomor: "283/Pdt/2018/PT.Sby", jenis: "Hukum Perdata", tahun: "2018", status: "selesai", hasil: "Menang" },
-    { nomor: "Tn. Fauzi dan Ny. Inayah", jenis: "Hukum Perdata", tahun: "2018", status: "selesai",
-        hasil: "Advokasi ke PT. KAI" },
-    { nomor: "Cawali-Cawawali Mojokerto 2018", jenis: "Hukum Pemilu dan Administrasi Daerah", tahun: "2018",
-        status: "selesai", hasil: "Pilkada Mojokerto Tahun 2018" },
-    { nomor: "Ny. Mimik Lestari, S.H.", jenis: "Hukum Pemilu", tahun: "2018", status: "selesai",
-        hasil: "Tidak Cukup Bukti" },
-    { nomor: "Ny. Suratmi", jenis: "Hukum Perbankan", tahun: "2018", status: "selesai", hasil: "Somasi" },
-    { nomor: "332/Pdt.G/2018/PN.Sby", jenis: "Hukum Perdata", tahun: "2018", status: "selesai", hasil: "Menang" },
-    { nomor: "H. Kaselan", jenis: "Hukum Perbankan dan Likuidasi", tahun: "2018", status: "selesai",
-        hasil: "Pemohon" },
-    { nomor: "PT. Saranabhakti Timur", jenis: "Perbuatan Melawan Hukum", tahun: "2018", status: "selesai",
-        hasil: "Menang Upaya Kasasi" },
-    { nomor: "195/Pdt.G/2019/PN.Sda", jenis: "Wanprestasi", tahun: "2019", status: "selesai", hasil: "Menang" },
-    { nomor: "502/Pdt.G/2019/PN.Smg", jenis: "Wanprestasi", tahun: "2019", status: "selesai", hasil: "Menang" },
-    { nomor: "1213/Pdt.G/2019/PN.Sby", jenis: "Perbuatan Melawan Hukum", tahun: "2019", status: "berjalan",
-        hasil: "On Progress" },
-    { nomor: "751/Pid.B/2020/PN.Sby", jenis: "Hukum Pidana", tahun: "2020", status: "selesai", hasil: "Putusan" },
-    { nomor: "781 K/PDT/2020", jenis: "Hukum Perdata", tahun: "2020", status: "selesai", hasil: "Menang" },
-    { nomor: "272/Pdt.G/2020/PN.Sby", jenis: "Wanprestasi", tahun: "2020", status: "berjalan",
-    hasil: "On Progress" },
-    { nomor: "Indra Dyantokoh, Dkk", jenis: "Perselisihan Hubungan Industrial", tahun: "2020", status: "selesai",
-        hasil: "Perdamaian (Disnaker Surabaya)" },
-    { nomor: "Edi Setyawan (Polres KP3 Tj. Perak)", jenis: "Hukum Pidana Ps. 303 KUHPidana", tahun: "2020",
-        status: "selesai", hasil: "Tersangka" },
-    { nomor: "Edi Setyawan (Polda Jatim)", jenis: "Hukum Pidana", tahun: "2020", status: "selesai",
-        hasil: "Tersangka" },
-    { nomor: "PT. Lintasbangun Persadajaya", jenis: "Layanan In House Lawyer", tahun: "2021", status: "berjalan",
-        hasil: "Menangani seluruh permasalahan hukum litigasi & non litigasi" },
-    { nomor: "5549/Pdt.G/2022/PA.Sby", jenis: "Gugatan Pembagian Harta Waris", tahun: "2022", status: "selesai",
-        hasil: "Menang" }
+    { nomor: "2190/Pdt.G/2012/PA.Sby", jenis: "Eksekusi Tanah dan Bangunan", tahun: "2012", status: "selesai", hasil: "Menang (Pemohon Eksekusi)", deskripsi: "Perkara eksekusi tanah dan bangunan yang dimenangkan oleh pemohon eksekusi di Pengadilan Agama Surabaya." },
+    { nomor: "535/Pdt.G/2013/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2013", status: "selesai", hasil: "Menang / Berkekuatan Hukum Tetap", deskripsi: "Perkara perbuatan melanggar hukum yang dimenangkan dan telah berkekuatan hukum tetap di Pengadilan Negeri Surabaya." },
+    { nomor: "LP/885/B/VIII/2013/Restabes Sby", jenis: "Hukum Pidana", tahun: "2013", status: "selesai", hasil: "Gelar Perkara", deskripsi: "Perkara pidana yang diselesaikan melalui gelar perkara di Polda Jatim." },
+    { nomor: "5945/Pdt.G/2014/PA.Sby", jenis: "Perlawanan", tahun: "2014", status: "selesai", hasil: "Menang", deskripsi: "Perkara perlawanan yang dimenangkan di Pengadilan Agama Surabaya." },
+    { nomor: "98/Pdt.G/2014/PN.Jmr", jenis: "Perbuatan Melanggar Hukum", tahun: "2014", status: "banding", hasil: "Upaya Hukum Banding", deskripsi: "Perkara perbuatan melanggar hukum yang sedang dalam upaya hukum banding di Pengadilan Negeri Jember." },
+    { nomor: "190/Pdt.G/2014/PN.Sby", jenis: "Wanprestasi", tahun: "2014", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Negeri Surabaya." },
+    { nomor: "472/Pdt.G/2014/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2014", status: "selesai", hasil: "Dading/Damai", deskripsi: "Perkara perbuatan melanggar hukum yang diselesaikan secara damai di Pengadilan Negeri Surabaya." },
+    { nomor: "22/Pdt.G/2015/PN.JBG", jenis: "Perbuatan Melanggar Hukum", tahun: "2015", status: "banding", hasil: "Upaya Hukum Banding", deskripsi: "Perkara perbuatan melanggar hukum yang sedang dalam upaya hukum banding di Pengadilan Negeri Jombang." },
+    { nomor: "36/Pdt.G/2015/PN.Sbr", jenis: "Perbuatan Melanggar Hukum", tahun: "2015", status: "selesai", hasil: "Menang", deskripsi: "Perkara perbuatan melanggar hukum yang dimenangkan di Pengadilan Negeri Sumber, Cirebon." },
+    { nomor: "50/Pdt.G/2015/PN.JBG", jenis: "Wanprestasi", tahun: "2015", status: "selesai", hasil: "Dading/Damai", deskripsi: "Perkara wanprestasi yang diselesaikan secara damai di Pengadilan Negeri Jombang." },
+    { nomor: "110/G/2015/PTUN.Sby", jenis: "Sengketa Tanah", tahun: "2015", status: "banding", hasil: "Upaya Hukum Banding", deskripsi: "Sengketa tanah yang sedang dalam upaya hukum banding di Pengadilan Tata Usaha Negara Surabaya." },
+    { nomor: "231/Pdt.G/2015/PTA.Sby", jenis: "Sengketa Waris/Perlawanan", tahun: "2015", status: "selesai", hasil: "Menang", deskripsi: "Sengketa waris yang dimenangkan di Pengadilan Tinggi Agama Surabaya." },
+    { nomor: "LP/215/V/2015/Jatim/Res JBG", jenis: "Hukum Pidana", tahun: "2015", status: "selesai", hasil: "Damai/SP3", deskripsi: "Perkara pidana yang diselesaikan dengan SP3 di Polres Jombang." },
+    { nomor: "LPB/1380/IX/2015/UM/Jatim", jenis: "Hukum Pidana", tahun: "2015", status: "proses", hasil: "Dalam Pemeriksaan Penyidik", deskripsi: "Perkara pidana yang masih dalam pemeriksaan penyidik di Polda Jatim." },
+    { nomor: "LPB/1404/IX/2015/UM/Jatim", jenis: "Hukum Pidana", tahun: "2015", status: "selesai", hasil: "SP3", deskripsi: "Perkara pidana yang dihentikan dengan SP3 di Polda Jatim." },
+    { nomor: "07/PDT/2016/PT.Sby", jenis: "Wanprestasi", tahun: "2016", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Tinggi Surabaya." },
+    { nomor: "176/PDT/2016/PT.BDG", jenis: "Wanprestasi", tahun: "2016", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Tinggi Bandung." },
+    { nomor: "Lutfi Herdyansah", jenis: "Hukum Perbankan", tahun: "2016", status: "selesai", hasil: "Klaim Nasabah", deskripsi: "Penanganan klaim nasabah perbankan di Jakarta." },
+    { nomor: "CV. Logam Abadi", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan", hasil: "Konsultan", deskripsi: "Konsultan hukum untuk CV. Logam Abadi di Jombang." },
+    { nomor: "PT. Barokta Fina", jenis: "Hukum Perseroan", tahun: "2016", status: "berjalan", hasil: "Konsultan Hukum", deskripsi: "Konsultan hukum perseroan untuk PT. Barokta Fina di Jombang." },
+    { nomor: "Yayasan Kyai Mojo", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan", hasil: "Konsultan Hukum", deskripsi: "Konsultan hukum untuk Yayasan Kyai Mojo di Jombang." },
+    { nomor: "PT. Chal Jaya", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan", hasil: "Konsultan Hukum", deskripsi: "Konsultan hukum untuk PT. Chal Jaya di Surabaya." },
+    { nomor: "PT. BPRS Kota Mojokerto", jenis: "Somasi, Non Litigasi, Litigasi, Sengketa Ekonomi Syariah", tahun: "2016", status: "berjalan", hasil: "Penyelesaian Sengketa Kredit", deskripsi: "Penyelesaian sengketa kredit di Mojokerto, Mojosari, Pasuruan, Pandaan, Jombang." },
+    { nomor: "PT. BMH Technologies (PMA)", jenis: "Legal Opinion", tahun: "2016", status: "selesai", hasil: "Konsultasi", deskripsi: "Pemberian legal opinion untuk PT. BMH Technologies di Surabaya." },
+    { nomor: "Kiyoyuki Takeda (PMA)", jenis: "Legal Opinion -- Legal Audit", tahun: "2016", status: "selesai", hasil: "Konsultasi", deskripsi: "Pemberian legal opinion dan legal audit untuk Kiyoyuki Takeda di Jakarta." },
+    { nomor: "CV. Prima Karya", jenis: "Legal Opinion", tahun: "2016", status: "selesai", hasil: "Konsultasi", deskripsi: "Pemberian legal opinion untuk CV. Prima Karya di Kediri." },
+    { nomor: "Ny. Sriyatun", jenis: "Somasi", tahun: "2016", status: "selesai", hasil: "Advokasi", deskripsi: "Penanganan somasi dan advokasi untuk Ny. Sriyatun di Surabaya-Ngawi." },
+    { nomor: "K/LP/275/XII/2016/Jatim/SPK", jenis: "Hukum Pidana", tahun: "2016", status: "selesai", hasil: "SP3", deskripsi: "Perkara pidana yang dihentikan dengan SP3 di Blitar." },
+    { nomor: "3339 K/PDT/2016", jenis: "Hukum Perdata", tahun: "2016", status: "proses", hasil: "Pemeriksaan Kasasi", deskripsi: "Perkara perdata yang sedang dalam pemeriksaan kasasi di Mahkamah Agung." },
+    { nomor: "301 K/AG/2016", jenis: "Hukum Waris", tahun: "2016", status: "selesai", hasil: "Menang", deskripsi: "Perkara waris yang dimenangkan di Mahkamah Agung." },
+    { nomor: "214/PDT/2016/PT.Sby", jenis: "Hukum Perdata", tahun: "2016", status: "proses", hasil: "Pemeriksaan Banding", deskripsi: "Perkara perdata yang sedang dalam pemeriksaan banding di Pengadilan Tinggi Surabaya." },
+    { nomor: "13/Pdt.G/2017/PN.Bil", jenis: "Hukum Perbankan", tahun: "2017", status: "selesai", hasil: "Damai (dengan LPS)", deskripsi: "Perkara perbankan yang diselesaikan secara damai dengan LPS di Pengadilan Negeri Bangil." },
+    { nomor: "M. Lutfi Shofiq, Dkk", jenis: "Hukum Perdata -- Agraria", tahun: "2017", status: "banding", hasil: "Upaya Hukum Banding", deskripsi: "Sengketa agraria yang sedang dalam upaya hukum banding di Pengadilan Tinggi Surabaya." },
+    { nomor: "LPB/239/II/2017/UM/Jatim", jenis: "Hukum Pidana", tahun: "2017", status: "proses", hasil: "Pemeriksaan", deskripsi: "Perkara pidana yang sedang dalam pemeriksaan di Polda Jatim." },
+    { nomor: "LPB/271/III/2017/UM/Jatim", jenis: "Hukum Pidana", tahun: "2017", status: "proses", hasil: "Pemeriksaan", deskripsi: "Perkara pidana yang sedang dalam pemeriksaan di Polda Jatim." },
+    { nomor: "627/Pdt.G/2017/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2017", status: "proses", hasil: "Pemeriksaan", deskripsi: "Perkara perbuatan melanggar hukum yang sedang dalam pemeriksaan di Pengadilan Negeri Surabaya." },
+    { nomor: "LP/83/V/2017/Jatim/Res.SPG", jenis: "Hukum Pidana", tahun: "2017", status: "selesai", hasil: "Gelar Perkara", deskripsi: "Perkara pidana yang diselesaikan melalui gelar perkara di Polda Jatim." },
+    { nomor: "283/Pdt/2018/PT.Sby", jenis: "Hukum Perdata", tahun: "2018", status: "selesai", hasil: "Menang", deskripsi: "Perkara perdata yang dimenangkan di Pengadilan Tinggi Surabaya." },
+    { nomor: "Tn. Fauzi dan Ny. Inayah", jenis: "Hukum Perdata", tahun: "2018", status: "selesai", hasil: "Advokasi ke PT. KAI", deskripsi: "Advokasi perkara perdata ke PT. KAI untuk Tn. Fauzi dan Ny. Inayah di Surabaya." },
+    { nomor: "Cawali-Cawawali Mojokerto 2018", jenis: "Hukum Pemilu dan Administrasi Daerah", tahun: "2018", status: "selesai", hasil: "Pilkada Mojokerto Tahun 2018", deskripsi: "Penanganan perkara hukum pemilu untuk Pilkada Mojokerto 2018." },
+    { nomor: "Ny. Mimik Lestari, S.H.", jenis: "Hukum Pemilu", tahun: "2018", status: "selesai", hasil: "Tidak Cukup Bukti", deskripsi: "Perkara hukum pemilu yang dihentikan karena tidak cukup bukti di Panwaslu." },
+    { nomor: "Ny. Suratmi", jenis: "Hukum Perbankan", tahun: "2018", status: "selesai", hasil: "Somasi", deskripsi: "Penanganan somasi untuk Ny. Suratmi di Surabaya." },
+    { nomor: "332/Pdt.G/2018/PN.Sby", jenis: "Hukum Perdata", tahun: "2018", status: "selesai", hasil: "Menang", deskripsi: "Perkara perdata yang dimenangkan di Pengadilan Negeri Surabaya." },
+    { nomor: "H. Kaselan", jenis: "Hukum Perbankan dan Likuidasi", tahun: "2018", status: "selesai", hasil: "Pemohon", deskripsi: "Penanganan perkara perbankan dan likuidasi untuk H. Kaselan di Pasuruan." },
+    { nomor: "PT. Saranabhakti Timur", jenis: "Perbuatan Melawan Hukum", tahun: "2018", status: "selesai", hasil: "Menang Upaya Kasasi", deskripsi: "Perkara perbuatan melawan hukum yang dimenangkan di Mahkamah Agung untuk PT. Saranabhakti Timur." },
+    { nomor: "195/Pdt.G/2019/PN.Sda", jenis: "Wanprestasi", tahun: "2019", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Negeri Surabaya." },
+    { nomor: "502/Pdt.G/2019/PN.Smg", jenis: "Wanprestasi", tahun: "2019", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Negeri Semarang." },
+    { nomor: "1213/Pdt.G/2019/PN.Sby", jenis: "Perbuatan Melawan Hukum", tahun: "2019", status: "berjalan", hasil: "On Progress", deskripsi: "Perkara perbuatan melawan hukum yang sedang berjalan di Pengadilan Negeri Surabaya." },
+    { nomor: "751/Pid.B/2020/PN.Sby", jenis: "Hukum Pidana", tahun: "2020", status: "selesai", hasil: "Putusan", deskripsi: "Perkara pidana yang telah diputus di Pengadilan Negeri Surabaya." },
+    { nomor: "781 K/PDT/2020", jenis: "Hukum Perdata", tahun: "2020", status: "selesai", hasil: "Menang", deskripsi: "Perkara perdata yang dimenangkan di Mahkamah Agung." },
+    { nomor: "272/Pdt.G/2020/PN.Sby", jenis: "Wanprestasi", tahun: "2020", status: "berjalan", hasil: "On Progress", deskripsi: "Perkara wanprestasi yang sedang berjalan di Pengadilan Negeri Surabaya." },
+    { nomor: "Indra Dyantokoh, Dkk", jenis: "Perselisihan Hubungan Industrial", tahun: "2020", status: "selesai", hasil: "Perdamaian (Disnaker Surabaya)", deskripsi: "Perselisihan hubungan industrial yang diselesaikan secara perdamaian di Disnaker Surabaya." },
+    { nomor: "Edi Setyawan (Polres KP3 Tj. Perak)", jenis: "Hukum Pidana Ps. 303 KUHPidana", tahun: "2020", status: "selesai", hasil: "Tersangka", deskripsi: "Perkara pidana Pasal 303 KUHP di Polres KP3 Tanjung Perak Surabaya." },
+    { nomor: "Edi Setyawan (Polda Jatim)", jenis: "Hukum Pidana", tahun: "2020", status: "selesai", hasil: "Tersangka", deskripsi: "Perkara pidana di Polda Jatim." },
+    { nomor: "PT. Lintasbangun Persadajaya", jenis: "Layanan In House Lawyer", tahun: "2021", status: "berjalan", hasil: "Menangani seluruh permasalahan hukum litigasi & non litigasi", deskripsi: "Layanan in house lawyer untuk PT. Lintasbangun Persadajaya, distributor Semen Indonesia Jatim." },
+    { nomor: "5549/Pdt.G/2022/PA.Sby", jenis: "Gugatan Pembagian Harta Waris", tahun: "2022", status: "selesai", hasil: "Menang", deskripsi: "Gugatan pembagian harta waris yang dimenangkan di Pengadilan Agama Surabaya." }
 ];
 
-// ===== RENDER KASUS =====
+// ============================================================
+// DATA BIDANG KEAHLIAN DENGAN DESKRIPSI
+// ============================================================
+const practiceAreas = [
+    { id: "01", name: "Hukum Perikatan & Hukum Benda", desc: "Mengatur hubungan hukum antar pihak, termasuk perjanjian, utang-piutang, dan hak kepemilikan barang." },
+    { id: "02", name: "Hukum Perdata Bisnis", desc: "Menyangkut sengketa bisnis, wanprestasi, dan pelanggaran kontrak dagang antar perusahaan." },
+    { id: "03", name: "Hukum Pidana", desc: "Penanganan perkara pidana umum, pidana korporasi, dan tindak pidana khusus sesuai KUHP." },
+    { id: "04", name: "Hukum Administrasi & Perijinan", desc: "Mengurus perijinan usaha, izin operasional, dan sengketa dengan instansi pemerintah." },
+    { id: "05", name: "Hukum Perseroan / Perusahaan", desc: "Pendirian perusahaan, perubahan anggaran dasar, hingga likuidasi dan merger." },
+    { id: "06", name: "Hukum Kepailitan & PKPU", desc: "Penanganan perkara kepailitan dan Penundaan Kewajiban Pembayaran Utang (PKPU)." },
+    { id: "07", name: "Hak Atas Kekayaan Intelektual", desc: "Perlindungan hak cipta, merek, paten, desain industri, dan rahasia dagang." },
+    { id: "08", name: "Hukum Pertanahan", desc: "Sengketa tanah, sertifikasi, hak atas tanah, dan perkara agraria lainnya." },
+    { id: "09", name: "Hukum Perbankan & Pembiayaan", desc: "Perkara kredit macet, pembiayaan, dan sengketa dengan lembaga keuangan." },
+    { id: "10", name: "Hukum Perlindungan Konsumen", desc: "Perlindungan hak-hak konsumen dan sengketa dengan pelaku usaha." },
+    { id: "11", name: "Hukum Penanaman Modal", desc: "Konsultasi dan pendampingan investasi, PMA, dan PMDN sesuai regulasi." },
+    { id: "12", name: "Hukum Dagang & Pengangkutan", desc: "Sengketa dagang, pengiriman barang, dan asuransi pengangkutan." },
+    { id: "13", name: "Hukum Persaingan Usaha", desc: "Perkara monopoli, kartel, dan persaingan usaha tidak sehat lainnya." },
+    { id: "14", name: "Hukum Perburuhan / Ketenagakerjaan", desc: "Penyelesaian PHK, perselisihan hubungan industrial, dan hak-hak pekerja." },
+    { id: "15", name: "Hukum Waris", desc: "Pembagian harta waris, sengketa warisan, dan penetapan ahli waris." },
+    { id: "16", name: "Penyelesaian Sengketa Alternatif", desc: "Mediasi, arbitrase, dan negosiasi di luar jalur litigasi pengadilan." }
+];
+
+// ============================================================
+// RENDER PRACTICE AREAS DENGAN TOOLTIP
+// ============================================================
+function renderPracticeAreas() {
+    const grid = document.getElementById('practiceGrid');
+    if (!grid) return;
+
+    grid.innerHTML = practiceAreas.map(item => `
+        <div class="practice-item">
+            <div class="practice-card">
+                <span class="practice-number">${item.id}</span>
+                <h3 class="practice-title">${item.name}</h3>
+                <a href="#" class="practice-link">Selengkapnya →</a>
+            </div>
+            <div class="practice-tooltip">${item.desc}</div>
+        </div>
+    `).join('');
+}
+
+// Panggil fungsi saat halaman dimuat
+document.addEventListener('DOMContentLoaded', renderPracticeAreas);
+
+// ============================================================
+// RENDER KASUS DENGAN MODAL POP-UP
+// ============================================================
 let currentFilter = 'all';
 
 function renderCases(filter = 'all', limit = 6) {
@@ -110,17 +123,28 @@ function renderCases(filter = 'all', limit = 6) {
         proses: 'Proses'
     };
 
-    grid.innerHTML = toShow.map(c => `
-            <div class="experience-card" data-status="${c.status}">
-                <div class="case-number">${c.nomor}</div>
-                <h4>${c.jenis}</h4>
-                <div class="case-meta">
-                    <span>${c.tahun}</span>
-                    <span class="status ${c.status}">${statusLabels[c.status] || c.status.toUpperCase()}</span>
-                </div>
-                <div class="case-result">${c.hasil}</div>
+    grid.innerHTML = toShow.map((c, index) => `
+        <div class="experience-card" data-status="${c.status}" data-index="${index}">
+            <div class="case-number">${c.nomor}</div>
+            <h4>${c.jenis}</h4>
+            <div class="case-meta">
+                <span>${c.tahun}</span>
+                <span class="status ${c.status}">${statusLabels[c.status] || c.status.toUpperCase()}</span>
             </div>
-        `).join('');
+            <div class="case-result">${c.hasil}</div>
+        </div>
+    `).join('');
+
+    // Event listener untuk modal
+    document.querySelectorAll('.experience-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const index = parseInt(this.dataset.index);
+            const data = filtered[index];
+            if (data) {
+                openModal(data);
+            }
+        });
+    });
 
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     if (!loadMoreBtn) return;
@@ -129,12 +153,126 @@ function renderCases(filter = 'all', limit = 6) {
         loadMoreBtn.style.display = 'none';
     } else {
         loadMoreBtn.style.display = 'inline-flex';
-        loadMoreBtn.innerHTML = `<span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span>`;
+        const remaining = filtered.length - limit;
+        loadMoreBtn.innerHTML = `<span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus (${remaining} lagi)</span> →`;
         loadMoreBtn.onclick = () => renderCases(filter, filtered.length);
     }
 }
 
-// ===== FILTER KASUS =====
+// ============================================================
+// MODAL POP-UP FUNGSI
+// ============================================================
+const modalOverlay = document.getElementById('modalOverlay');
+const modalContent = document.getElementById('modalContent');
+const modalClose = document.getElementById('modalClose');
+
+function openModal(data) {
+    const statusLabels = {
+        selesai: 'Selesai',
+        berjalan: 'Berjalan',
+        banding: 'Banding',
+        proses: 'Proses'
+    };
+
+    modalContent.innerHTML = `
+        <div class="modal-case-number">${data.nomor}</div>
+        <h3 class="modal-title">${data.jenis}</h3>
+        <div class="modal-detail">
+            <div class="detail-item">
+                <div class="label">Tahun</div>
+                <div class="value">${data.tahun}</div>
+            </div>
+            <div class="detail-item">
+                <div class="label">Status</div>
+                <div class="value">${statusLabels[data.status] || data.status.toUpperCase()}</div>
+            </div>
+            <div class="detail-item" style="grid-column: 1 / -1;">
+                <div class="label">Hasil</div>
+                <div class="value">${data.hasil}</div>
+            </div>
+        </div>
+        <div class="modal-description">
+            ${data.deskripsi || 'Detail perkara ini tersedia untuk konsultasi lebih lanjut dengan tim kami.'}
+        </div>
+    `;
+
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
+
+
+
+// ============================================================
+// PHOTO MODAL POP-UP FUNGSI
+// ============================================================
+const photoModalOverlay = document.getElementById('photoModalOverlay');
+const photoModalImage = document.getElementById('photoModalImage');
+const photoModalName = document.getElementById('photoModalName');
+const photoModalPosition = document.getElementById('photoModalPosition');
+const photoModalClose = document.getElementById('photoModalClose');
+
+function openPhotoModal(imageSrc, name, position) {
+    photoModalImage.src = imageSrc;
+    photoModalImage.alt = name;
+    photoModalName.textContent = name;
+    photoModalPosition.textContent = position;
+    photoModalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePhotoModal() {
+    photoModalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+if (photoModalClose) {
+    photoModalClose.addEventListener('click', closePhotoModal);
+}
+
+if (photoModalOverlay) {
+    photoModalOverlay.addEventListener('click', function(e) {
+        if (e.target === this) closePhotoModal();
+    });
+}
+
+// Event klik pada gambar team card
+document.querySelectorAll('.team-card .team-image').forEach(image => {
+    image.addEventListener('click', function() {
+        const card = this.closest('.team-card');
+        const foto = card.dataset.foto;
+        const name = card.querySelector('h3').textContent;
+        const position = card.querySelector('.position').textContent;
+        openPhotoModal(foto, name, position);
+    });
+});
+
+// ============================================================
+// KEYBOARD NAV UNTUK PHOTO MODAL
+// ============================================================
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        if (photoModalOverlay && photoModalOverlay.classList.contains('active')) {
+            closePhotoModal();
+        }
+    }
+});
+// ============================================================
+// FILTER KASUS
+// ============================================================
 document.querySelectorAll('.experience-filters button').forEach(btn => {
     btn.addEventListener('click', function() {
         document.querySelectorAll('.experience-filters button').forEach(b => b.classList.remove('active'));
@@ -144,71 +282,21 @@ document.querySelectorAll('.experience-filters button').forEach(btn => {
     });
 });
 
-// ===== INIT KASUS =====
+// ============================================================
+// INIT KASUS
+// ============================================================
 renderCases('all', 6);
 
-// ===== STATISTIK ANIMASI =====
-function animateStats() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    let animated = false;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !animated) {
-                animated = true;
-                statNumbers.forEach(stat => {
-                    const target = parseInt(stat.getAttribute('data-target'));
-                    let current = 0;
-                    const increment = target / 60;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            stat.textContent = target + '+';
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = Math.floor(current) + '+';
-                        }
-                    }, 25);
-                });
-            }
-        });
-    }, { threshold: 0.3 });
-
-    if (statNumbers.length > 0) {
-        observer.observe(statNumbers[0].closest('.stats-section'));
-    }
-}
-
-// ===== HERO SLIDER =====
-function initHeroSlider() {
-    const slides = document.querySelectorAll('.hero-slider .slide');
-    let currentIndex = 0;
-
-    if (slides.length === 0) return;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }
-
-    showSlide(0);
-    setInterval(nextSlide, 5000);
-}
-
-// ===== BAHASA TOGGLE (DROPDOWN) =====
+// ============================================================
+// BAHASA TOGGLE
+// ============================================================
 let currentLang = 'id';
 
 function switchLanguage(lang) {
     currentLang = lang;
     document.querySelector('html').lang = lang === 'id' ? 'id' : 'en';
 
-    // Update all text elements
+    // Update semua elemen dengan data-id dan data-en
     document.querySelectorAll('[data-id][data-en]').forEach(el => {
         const text = lang === 'id' ? el.getAttribute('data-id') : el.getAttribute('data-en');
         if (text) {
@@ -234,10 +322,10 @@ function switchLanguage(lang) {
         }
     });
 
-    // Update dropdown button
-    document.getElementById('currentLangLabel').textContent = lang === 'id' ? 'ID' : 'EN';
+    // Update language button
+    document.getElementById('currentLangLabel').textContent = lang.toUpperCase();
 
-    // Update options
+    // Update active state di dropdown
     document.querySelectorAll('.lang-option').forEach(opt => {
         opt.classList.toggle('active', opt.dataset.lang === lang);
     });
@@ -275,29 +363,54 @@ function switchLanguage(lang) {
     }
 }
 
-// ===== DROPDOWN EVENTS =====
-const langBtn = document.getElementById('langBtn');
-const langDropdown = document.getElementById('langDropdown');
-
-if (langBtn && langDropdown) {
-    langBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langDropdown.classList.toggle('active');
+// Language dropdown event
+document.querySelectorAll('.lang-option').forEach(option => {
+    option.addEventListener('click', function() {
+        const lang = this.dataset.lang;
+        switchLanguage(lang);
     });
+});
 
-    document.querySelectorAll('.lang-option').forEach(opt => {
-        opt.addEventListener('click', () => {
-            switchLanguage(opt.dataset.lang);
-            langDropdown.classList.remove('active');
-        });
-    });
+// ============================================================
+// STATISTIK ANIMASI
+// ============================================================
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.dataset.target);
+        let current = 0;
+        const increment = Math.ceil(target / 40);
+        const duration = 1500;
+        const stepTime = duration / 40;
 
-    document.addEventListener('click', () => {
-        langDropdown.classList.remove('active');
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            stat.textContent = current + '+';
+        }, stepTime);
     });
 }
 
-// ===== NAVBAR SCROLL =====
+// Trigger stat animation when stats section is visible
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStats();
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    statsObserver.observe(statsSection);
+}
+
+// ============================================================
+// NAVBAR SCROLL
+// ============================================================
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
     if (window.pageYOffset > 60) {
@@ -307,7 +420,9 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// ===== HAMBURGER MENU =====
+// ============================================================
+// HAMBURGER MENU
+// ============================================================
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 const navOverlay = document.getElementById('navOverlay');
@@ -334,7 +449,9 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// ===== SCROLL ANIMATION =====
+// ============================================================
+// SCROLL ANIMATION
+// ============================================================
 const animateElements = document.querySelectorAll('.animate-on-scroll');
 const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
 const observer = new IntersectionObserver((entries) => {
@@ -344,7 +461,9 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 animateElements.forEach(el => observer.observe(el));
 
-// ===== SMOOTH SCROLL =====
+// ============================================================
+// SMOOTH SCROLL
+// ============================================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
@@ -358,14 +477,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== KEYBOARD NAV =====
+// ============================================================
+// KEYBOARD NAV
+// ============================================================
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navMenu.classList.contains('open')) toggleMenu();
 });
 
-// ===== INIT =====
-initHeroSlider();
-animateStats();
-
-console.log('NOVAN E. SAPUTRA & PARTNERS — Website Company Profile');
+console.log('NOVAN & PARTNERS — Website Company Profile');
 console.log('Total cases loaded: ' + cases.length);
