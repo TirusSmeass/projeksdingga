@@ -23,7 +23,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
@@ -55,9 +55,9 @@
     <header class="navbar" id="navbar" role="navigation" aria-label="Navigasi utama">
         <div class="container">
             <a href="#" class="navbar-brand" aria-label="Beranda">
-                <img src="logo.jpeg" alt="NOVAN & PARTNERS Logo" class="logo-image" />
+                <img src="logo.jpeg" alt="NOVAN E. SAPUTRA & PARTNERS Logo" class="logo-image" />
                 <span class="brand-text">
-                    NOVAN & PARTNERS
+                    NOVAN E. SAPUTRA &amp; PARTNERS
                     <small>Advocates &amp; Legal Consultants</small>
                 </span>
             </a>
@@ -70,11 +70,21 @@
                 <a href="#pengalaman" role="menuitem" data-id="Pengalaman" data-en="Experience">Pengalaman</a>
                 <a href="#biaya" role="menuitem" data-id="Biaya Jasa" data-en="Legal Fees">Biaya Jasa</a>
                 <a href="#kontak" role="menuitem" data-id="Kontak" data-en="Contact">Kontak</a>
-                <div class="lang-toggle">
-                    <button class="active" id="langId">ID</button>
-                    <span class="divider">|</span>
-                    <button id="langEn">EN</button>
+
+                <!-- Language Dropdown -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn" id="langBtn">
+                        <span id="currentLangLabel">ID</span>
+                        <svg class="lang-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langDropdown">
+                        <button class="lang-option active" data-lang="id">Bahasa Indonesia</button>
+                        <button class="lang-option" data-lang="en">English</button>
+                    </div>
                 </div>
+
                 <a href="#kontak" role="menuitem" class="nav-cta">
                     <span class="btn btn-primary" data-id="Konsultasi" data-en="Consult">Konsultasi</span>
                 </a>
@@ -91,6 +101,17 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="beranda">
+        <!-- Hero Slider -->
+        <div class="hero-slider" id="heroSlider">
+            <div class="slide active">
+                <img src="Foto Tim.jpg" alt="Kantor Hukum" />
+            </div>
+            <div class="slide">
+                <img src="bg.jpg" alt="Kantor Hukum" />
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
@@ -109,22 +130,36 @@
                     dan sesuai koridor peraturan perundang-undangan yang berlaku.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#kontak" class="btn btn-primary"><span data-id="Konsultasi Sekarang" data-en="Consult Now">Konsultasi Sekarang</span> →</a>
+                    <a href="#kontak" class="btn btn-primary"><span data-id="Konsultasi Sekarang" data-en="Consult Now">Konsultasi Sekarang</span></a>
                     <a href="#layanan" class="btn btn-outline"><span data-id="Lihat Layanan" data-en="View Services">Lihat Layanan</span></a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="number">9+</div>
-                        <div class="label"><span data-id="Tahun Pengalaman" data-en="Years Experience">Tahun Pengalaman</span></div>
-                    </div>
-                    <div class="stat">
-                        <div class="number">50+</div>
-                        <div class="label"><span data-id="Penanganan Kasus" data-en="Cases Handled">Penanganan Kasus</span></div>
-                    </div>
-                    <div class="stat">
-                        <div class="number">✓</div>
-                        <div class="label"><span data-id="Tim Advokat Berlisensi PERADI" data-en="PERADI Licensed Team">Tim Advokat Berlisensi PERADI</span></div>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATISTIK ===== -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label"><span data-id="Perkara Ditangani" data-en="Cases Handled">Perkara Ditangani</span></div>
+                    <div class="stat-desc"><span data-id="Litigasi &amp; Non Litigasi" data-en="Litigation &amp; Non-Litigation">Litigasi &amp; Non Litigasi</span></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label"><span data-id="Klien Terlayani" data-en="Clients Served">Klien Terlayani</span></div>
+                    <div class="stat-desc"><span data-id="Individu &amp; Perusahaan" data-en="Individuals &amp; Companies">Individu &amp; Perusahaan</span></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="16">0</div>
+                    <div class="stat-label"><span data-id="Area Praktik Hukum" data-en="Practice Areas">Area Praktik Hukum</span></div>
+                    <div class="stat-desc"><span data-id="Berbagai Bidang Hukum" data-en="Various Legal Fields">Berbagai Bidang Hukum</span></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="9">0</div>
+                    <div class="stat-label"><span data-id="Tahun Pengalaman" data-en="Years Experience">Tahun Pengalaman</span></div>
+                    <div class="stat-desc"><span data-id="Praktisi Hukum" data-en="Legal Practitioners">Praktisi Hukum</span></div>
                 </div>
             </div>
         </div>
@@ -163,7 +198,7 @@
                         <div class="benefit-item"><span class="check">✓</span> <span data-id="Litigasi &amp; Non-Litigasi" data-en="Litigation &amp; Non-Litigation">Litigasi &amp; Non-Litigasi</span></div>
                     </div>
 
-                    <a href="#kontak" class="btn btn-dark"><span data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</span> →</a>
+                    <a href="#kontak" class="btn btn-dark"><span data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</span></a>
                 </div>
             </div>
         </div>
@@ -184,7 +219,6 @@
 
             <div class="visimisi-grid">
                 <div class="visimisi-card animate-on-scroll delay-1">
-                    <span class="icon">🎯</span>
                     <h3><span data-id="Visi" data-en="Vision">Visi</span></h3>
                     <p data-id="Menjadi kantor hukum terpercaya yang menjadi mitra strategis individu dan perusahaan dalam penyelesaian perkara hukum maupun mitigasi risiko hukum, dengan menjunjung tinggi profesionalisme, efektivitas, dan efisiensi."
                        data-en="To become a trusted law firm that serves as a strategic partner for individuals and companies in resolving legal cases and mitigating legal risks, upholding professionalism, effectiveness, and efficiency.">
@@ -194,7 +228,6 @@
                     </p>
                 </div>
                 <div class="visimisi-card animate-on-scroll delay-2">
-                    <span class="icon">📋</span>
                     <h3><span data-id="Misi" data-en="Mission">Misi</span></h3>
                     <ul>
                         <li>
@@ -250,7 +283,6 @@
 
             <div class="services-grid">
                 <div class="service-card animate-on-scroll delay-1">
-                    <span class="icon">⚖️</span>
                     <h3><span data-id="Litigasi" data-en="Litigation">Litigasi</span></h3>
                     <p data-id="Pendampingan atau pembelaan klien di hadapan Pengadilan, Kepolisian, Kejaksaan, PPNS, Lembaga Arbitrase, atau lembaga negara lain yang memiliki daya eksekusi/paksa."
                        data-en="Assistance or defense of clients before Courts, Police, Prosecutors, PPNS, Arbitration Institutions, or other state institutions that have executive/coercive power.">
@@ -265,7 +297,6 @@
                     </div>
                 </div>
                 <div class="service-card animate-on-scroll delay-2">
-                    <span class="icon">🏢</span>
                     <h3><span data-id="In House Lawyer" data-en="In House Lawyer">In House Lawyer</span></h3>
                     <p data-id="Layanan jasa hukum khusus untuk perkara non litigasi seperti mediasi, somasi, legal drafting, konsultasi, dan jasa hukum lainnya di luar penegakan hukum acara formil."
                        data-en="Legal services for non-litigation cases such as mediation, legal notices, legal drafting, consultations, and other legal services outside formal procedural law enforcement.">
@@ -402,7 +433,7 @@
             <div class="experience-grid" id="experienceGrid"></div>
 
             <div class="experience-load-more">
-                <button class="btn btn-dark" id="loadMoreBtn"><span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span> →</button>
+                <button class="btn btn-dark" id="loadMoreBtn"><span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span></button>
             </div>
         </div>
     </section>
@@ -421,7 +452,6 @@
 
             <div class="fees-grid">
                 <div class="fees-card animate-on-scroll delay-1">
-                    <span class="icon">⚖️</span>
                     <h3><span data-id="Litigasi" data-en="Litigation">Litigasi</span></h3>
                     <p data-id="Mekanisme kontrak kerja per kasus sesuai Surat Kuasa Khusus." 
                        data-en="Case-by-case work contract mechanism according to Special Power of Attorney.">
@@ -435,7 +465,6 @@
                     </ul>
                 </div>
                 <div class="fees-card animate-on-scroll delay-2">
-                    <span class="icon">🏢</span>
                     <h3><span data-id="In House Lawyer" data-en="In House Lawyer">In House Lawyer</span></h3>
                     <p data-id="Jangka waktu kontrak minimal 1 tahun dengan evaluasi tiap 6 bulan."
                        data-en="Minimum contract period of 1 year with evaluation every 6 months.">
@@ -468,31 +497,21 @@
             <div class="contact-grid">
                 <div class="contact-info animate-on-scroll">
                     <div class="contact-item">
-                        <span class="icon">📍</span>
                         <div class="text">
                             <strong><span data-id="Alamat Kantor" data-en="Office Address">Alamat Kantor</span></strong><br />
                             Jl. Ngagel Jaya Utara III No. 15A, Surabaya
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="icon">📞</span>
                         <div class="text">
                             <strong><span data-id="Telepon / WhatsApp" data-en="Phone / WhatsApp">Telepon / WhatsApp</span></strong><br />
                             <a href="tel:+6289612368360" style="color: var(--primary);">0896-1236-8360</a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <span class="icon">✉️</span>
+                    <div class="contact-item" style="border-bottom: none;">
                         <div class="text">
                             <strong><span data-id="Email" data-en="Email">Email</span></strong><br />
                             <a href="mailto:novanesaputranpartners@gmail.com" style="color: var(--primary);">novanesaputranpartners@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item" style="border-bottom: none;">
-                        <span class="icon">🕐</span>
-                        <div class="text">
-                            <strong><span data-id="Jam Operasional" data-en="Business Hours">Jam Operasional</span></strong><br />
-                            <span data-id="Senin - Jumat, 08.00 - 17.00 WIB" data-en="Monday - Friday, 08.00 - 17.00 WIB">Senin - Jumat, 08.00 - 17.00 WIB</span>
                         </div>
                     </div>
                 </div>
@@ -527,7 +546,7 @@
                 <div class="footer-brand">
                     <img src="logo.jpeg" alt="NOVAN & PARTNERS Logo" class="logo-footer" />
                     <div class="logo-text">
-                        NOVAN &amp; PARTNERS
+                        NOVAN E. SAPUTRA &amp; PARTNERS
                         <small>Advocates &amp; Legal Consultants</small>
                     </div>
                     <p data-id="Kantor hukum terpercaya dengan pengalaman 9+ tahun dalam menangani berbagai perkara hukum secara profesional dan efektif."
@@ -558,17 +577,22 @@
                 <div>
                     <h4><span data-id="Kontak" data-en="Contact">Kontak</span></h4>
                     <ul class="footer-contact">
-                        <li>📍 Jl. Ngagel Jaya Utara III No. 15A, Surabaya</li>
-                        <li>📞 <a href="tel:+6289612368360">0896-1236-8360</a></li>
-                        <li>✉️ <a href="mailto:novanesaputranpartners@gmail.com">novanesaputranpartners@gmail.com</a></li>
+                        <li>Jl. Ngagel Jaya Utara III No. 15A, Surabaya</li>
+                        <li><a href="tel:+6289612368360">0896-1236-8360</a></li>
+                        <li><a href="mailto:novanesaputranpartners@gmail.com">novanesaputranpartners@gmail.com</a></li>
                     </ul>
+                    <div class="footer-social" style="margin-top: 16px;">
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="YouTube">YouTube</a>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <span>© 2026 NOVAN E. SAPUTRA &amp; PARTNERS. All rights reserved.</span>
+                <span>2026 NOVAN E. SAPUTRA &amp; PARTNERS. All rights reserved.</span>
                 <div>
-                    <a href="#" data-id="Kebijakan Privasi" data-en="Privacy Policy">Kebijakan Privasi</a> &middot;
+                    <a href="#" data-id="Kebijakan Privasi" data-en="Privacy Policy">Kebijakan Privasi</a>
                     <a href="#" data-id="Syarat &amp; Ketentuan" data-en="Terms &amp; Conditions">Syarat &amp; Ketentuan</a>
                 </div>
             </div>
@@ -576,12 +600,11 @@
     </footer>
 
     <!-- ===== FLOATING WHATSAPP ===== -->
-    <!-- ===== FLOATING WHATSAPP ===== -->
-<a href="https://wa.me/6289612368360" target="_blank" class="wa-float" aria-label="WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-</a>
+    <a href="https://wa.me/6289612368360" target="_blank" class="wa-float" aria-label="WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
 
     <!-- ===== JAVASCRIPT ===== -->
     <script src="script.js"></script>
