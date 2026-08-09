@@ -1,4 +1,4 @@
-// ===== DATA KASUS (56 Data dari Word) =====
+// ===== DATA KASUS =====
 const cases = [
     { nomor: "2190/Pdt.G/2012/PA.Sby", jenis: "Eksekusi Tanah dan Bangunan", tahun: "2012", status: "selesai",
         hasil: "Menang (Pemohon Eksekusi)" },
@@ -95,7 +95,6 @@ const cases = [
 
 // ===== RENDER KASUS =====
 let currentFilter = 'all';
-let visibleCount = 6;
 
 function renderCases(filter = 'all', limit = 6) {
     const grid = document.getElementById('experienceGrid');
@@ -130,7 +129,7 @@ function renderCases(filter = 'all', limit = 6) {
         loadMoreBtn.style.display = 'none';
     } else {
         loadMoreBtn.style.display = 'inline-flex';
-        loadMoreBtn.innerHTML = `<span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span> →`;
+        loadMoreBtn.innerHTML = `<span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span>`;
         loadMoreBtn.onclick = () => renderCases(filter, filtered.length);
     }
 }
@@ -148,13 +147,68 @@ document.querySelectorAll('.experience-filters button').forEach(btn => {
 // ===== INIT KASUS =====
 renderCases('all', 6);
 
-// ===== BAHASA TOGGLE =====
+// ===== STATISTIK ANIMASI =====
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let animated = false;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            stat.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(current) + '+';
+                        }
+                    }, 25);
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+
+    if (statNumbers.length > 0) {
+        observer.observe(statNumbers[0].closest('.stats-section'));
+    }
+}
+
+// ===== HERO SLIDER =====
+function initHeroSlider() {
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    let currentIndex = 0;
+
+    if (slides.length === 0) return;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    showSlide(0);
+    setInterval(nextSlide, 5000);
+}
+
+// ===== BAHASA TOGGLE (DROPDOWN) =====
 let currentLang = 'id';
 
 function switchLanguage(lang) {
     currentLang = lang;
     document.querySelector('html').lang = lang === 'id' ? 'id' : 'en';
 
+    // Update all text elements
     document.querySelectorAll('[data-id][data-en]').forEach(el => {
         const text = lang === 'id' ? el.getAttribute('data-id') : el.getAttribute('data-en');
         if (text) {
@@ -169,8 +223,7 @@ function switchLanguage(lang) {
                             target = target.parentNode;
                         }
                         if (target && target.hasAttribute('data-id')) {
-                            const newText = lang === 'id' ? target.getAttribute('data-id') : target
-                            .getAttribute('data-en');
+                            const newText = lang === 'id' ? target.getAttribute('data-id') : target.getAttribute('data-en');
                             if (newText) node.textContent = newText;
                         }
                     }
@@ -181,13 +234,20 @@ function switchLanguage(lang) {
         }
     });
 
-    document.getElementById('langId').classList.toggle('active', lang === 'id');
-    document.getElementById('langEn').classList.toggle('active', lang === 'en');
+    // Update dropdown button
+    document.getElementById('currentLangLabel').textContent = lang === 'id' ? 'ID' : 'EN';
 
+    // Update options
+    document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.lang === lang);
+    });
+
+    // Update title
     document.title = lang === 'id' ?
         'NOVAN E. SAPUTRA & PARTNERS — Advokat & Konsultan Hukum' :
         'NOVAN E. SAPUTRA & PARTNERS — Advocates & Legal Consultants';
 
+    // Update meta description
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
         metaDesc.content = lang === 'id' ?
@@ -195,14 +255,7 @@ function switchLanguage(lang) {
             'NOVAN E. SAPUTRA & PARTNERS is a law firm formed by a group of PERADI licensed advocates, here to help individuals and companies resolve legal issues.';
     }
 
-    document.querySelectorAll('.hero-stats .stat .label').forEach(label => {
-        const el = label.querySelector('[data-id]');
-        if (el) {
-            const text = lang === 'id' ? el.getAttribute('data-id') : el.getAttribute('data-en');
-            el.textContent = text;
-        }
-    });
-
+    // Update filter buttons
     document.querySelectorAll('.experience-filters button').forEach(btn => {
         const el = btn.querySelector('[data-id]');
         if (el) {
@@ -211,6 +264,7 @@ function switchLanguage(lang) {
         }
     });
 
+    // Update load more button
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     if (loadMoreBtn) {
         const span = loadMoreBtn.querySelector('span');
@@ -221,13 +275,27 @@ function switchLanguage(lang) {
     }
 }
 
-document.getElementById('langId').addEventListener('click', function() {
-    switchLanguage('id');
-});
+// ===== DROPDOWN EVENTS =====
+const langBtn = document.getElementById('langBtn');
+const langDropdown = document.getElementById('langDropdown');
 
-document.getElementById('langEn').addEventListener('click', function() {
-    switchLanguage('en');
-});
+if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+            switchLanguage(opt.dataset.lang);
+            langDropdown.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        langDropdown.classList.remove('active');
+    });
+}
 
 // ===== NAVBAR SCROLL =====
 const navbar = document.getElementById('navbar');
@@ -295,5 +363,9 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navMenu.classList.contains('open')) toggleMenu();
 });
 
-console.log('NOVAN & PARTNERS — Website Company Profile');
+// ===== INIT =====
+initHeroSlider();
+animateStats();
+
+console.log('NOVAN E. SAPUTRA & PARTNERS — Website Company Profile');
 console.log('Total cases loaded: ' + cases.length);
