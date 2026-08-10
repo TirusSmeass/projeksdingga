@@ -101,7 +101,6 @@ function renderPracticeAreas() {
     `).join('');
 }
 
-// Panggil fungsi saat halaman dimuat
 document.addEventListener('DOMContentLoaded', renderPracticeAreas);
 
 // ============================================================
@@ -135,7 +134,6 @@ function renderCases(filter = 'all', limit = 6) {
         </div>
     `).join('');
 
-    // Event listener untuk modal
     document.querySelectorAll('.experience-card').forEach(card => {
         card.addEventListener('click', function() {
             const index = parseInt(this.dataset.index);
@@ -153,7 +151,6 @@ function renderCases(filter = 'all', limit = 6) {
         loadMoreBtn.style.display = 'none';
     } else {
         loadMoreBtn.style.display = 'inline-flex';
-        // HAPUS TULISAN "50 lagi" - hanya tampilkan "Lihat Semua Kasus"
         loadMoreBtn.innerHTML = `<span data-id="Lihat Semua Kasus" data-en="View All Cases">Lihat Semua Kasus</span> →`;
         loadMoreBtn.onclick = () => renderCases(filter, filtered.length);
     }
@@ -215,48 +212,45 @@ document.addEventListener('keydown', function(e) {
 });
 
 // ============================================================
-// PHOTO MODAL POP-UP FUNGSI
+// LAWYER MODAL POP-UP FUNGSI
 // ============================================================
-const photoModalOverlay = document.getElementById('photoModalOverlay');
-const photoModalImage = document.getElementById('photoModalImage');
-const photoModalName = document.getElementById('photoModalName');
-const photoModalPosition = document.getElementById('photoModalPosition');
-const photoModalClose = document.getElementById('photoModalClose');
+const lawyerModalOverlay = document.getElementById('lawyerModalOverlay');
+const lawyerModalImage = document.getElementById('lawyerModalImage');
+const lawyerModalName = document.getElementById('lawyerModalName');
+const lawyerModalPosition = document.getElementById('lawyerModalPosition');
+const lawyerModalNia = document.getElementById('lawyerModalNia');
+const lawyerModalEducation = document.getElementById('lawyerModalEducation');
+const lawyerModalExperience = document.getElementById('lawyerModalExperience');
+const lawyerModalExpertise = document.getElementById('lawyerModalExpertise');
+const lawyerModalClose = document.getElementById('lawyerModalClose');
 
-function openPhotoModal(imageSrc, name, position) {
-    photoModalImage.src = imageSrc;
-    photoModalImage.alt = name;
-    photoModalName.textContent = name;
-    photoModalPosition.textContent = position;
-    photoModalOverlay.classList.add('active');
+function openLawyerModal(imageSrc, name, position, nia, education, experience, expertise) {
+    lawyerModalImage.src = imageSrc;
+    lawyerModalImage.alt = name;
+    lawyerModalName.textContent = name;
+    lawyerModalPosition.textContent = position;
+    lawyerModalNia.textContent = nia || '—';
+    lawyerModalEducation.textContent = education || '—';
+    lawyerModalExperience.textContent = experience || '—';
+    lawyerModalExpertise.textContent = expertise || '—';
+    lawyerModalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-function closePhotoModal() {
-    photoModalOverlay.classList.remove('active');
+function closeLawyerModal() {
+    lawyerModalOverlay.classList.remove('active');
     document.body.style.overflow = '';
 }
 
-if (photoModalClose) {
-    photoModalClose.addEventListener('click', closePhotoModal);
+if (lawyerModalClose) {
+    lawyerModalClose.addEventListener('click', closeLawyerModal);
 }
 
-if (photoModalOverlay) {
-    photoModalOverlay.addEventListener('click', function(e) {
-        if (e.target === this) closePhotoModal();
+if (lawyerModalOverlay) {
+    lawyerModalOverlay.addEventListener('click', function(e) {
+        if (e.target === this) closeLawyerModal();
     });
 }
-
-// Event klik pada gambar team card
-document.querySelectorAll('.team-card .team-image').forEach(image => {
-    image.addEventListener('click', function() {
-        const card = this.closest('.team-card');
-        const foto = card.dataset.foto;
-        const name = card.querySelector('h3').textContent;
-        const position = card.querySelector('.position').textContent;
-        openPhotoModal(foto, name, position);
-    });
-});
 
 // ============================================================
 // FILTER KASUS
@@ -284,7 +278,6 @@ function switchLanguage(lang) {
     currentLang = lang;
     document.querySelector('html').lang = lang === 'id' ? 'id' : 'en';
 
-    // Update semua elemen dengan data-id dan data-en
     document.querySelectorAll('[data-id][data-en]').forEach(el => {
         const text = lang === 'id' ? el.getAttribute('data-id') : el.getAttribute('data-en');
         if (text) {
@@ -310,20 +303,16 @@ function switchLanguage(lang) {
         }
     });
 
-    // Update language button
     document.getElementById('currentLangLabel').textContent = lang.toUpperCase();
 
-    // Update active state di dropdown
     document.querySelectorAll('.lang-option').forEach(opt => {
         opt.classList.toggle('active', opt.dataset.lang === lang);
     });
 
-    // Update title
     document.title = lang === 'id' ?
         'NOVAN E. SAPUTRA & PARTNERS — Advokat & Konsultan Hukum' :
         'NOVAN E. SAPUTRA & PARTNERS — Advocates & Legal Consultants';
 
-    // Update meta description
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
         metaDesc.content = lang === 'id' ?
@@ -331,7 +320,6 @@ function switchLanguage(lang) {
             'NOVAN E. SAPUTRA & PARTNERS is a law firm formed by a group of PERADI licensed advocates, here to help individuals and companies resolve legal issues.';
     }
 
-    // Update filter buttons
     document.querySelectorAll('.experience-filters button').forEach(btn => {
         const el = btn.querySelector('[data-id]');
         if (el) {
@@ -340,7 +328,6 @@ function switchLanguage(lang) {
         }
     });
 
-    // Update load more button
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     if (loadMoreBtn) {
         const span = loadMoreBtn.querySelector('span');
@@ -351,7 +338,6 @@ function switchLanguage(lang) {
     }
 }
 
-// Language dropdown event
 document.querySelectorAll('.lang-option').forEach(option => {
     option.addEventListener('click', function() {
         const lang = this.dataset.lang;
@@ -382,7 +368,6 @@ function animateStats() {
     });
 }
 
-// Trigger stat animation when stats section is visible
 const statsSection = document.querySelector('.stats-section');
 if (statsSection) {
     const statsObserver = new IntersectionObserver((entries) => {
@@ -471,7 +456,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         if (navMenu.classList.contains('open')) toggleMenu();
-        if (photoModalOverlay && photoModalOverlay.classList.contains('active')) closePhotoModal();
+        if (lawyerModalOverlay && lawyerModalOverlay.classList.contains('active')) closeLawyerModal();
         if (modalOverlay && modalOverlay.classList.contains('active')) closeModal();
     }
 });
