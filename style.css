@@ -475,7 +475,6 @@ ul {
     position: relative;
 }
 
-/* HAPUS GARIS BAWAH */
 .hero h1 .highlight::after {
     display: none;
 }
@@ -1013,10 +1012,21 @@ ul {
     font-size: 0.8rem;
     color: var(--secondary);
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
-.team-card .team-info .badge-peradi,
+.team-card .team-info .badge-peradi {
+    display: inline-block;
+    margin: 4px 0 8px;
+    padding: 4px 14px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.5px;
+}
+
 .team-card .team-info .expertise {
     display: none;
 }
