@@ -1,86 +1,111 @@
 // ============================================================
-// DATA KASUS (52 Data Setelah Perbaikan)
+// DATA KASUS (52 Data Final dari Tabel)
 // ============================================================
 const cases = [
-    // ===== DATA TETAP =====
+    // No. 1
     { nomor: "2190/Pdt.G/2012/PA.Sby", jenis: "Eksekusi Tanah dan Bangunan", tahun: "2012", status: "selesai", hasil: "Menang (Pemohon Eksekusi)", deskripsi: "Perkara eksekusi tanah dan bangunan yang dimenangkan oleh pemohon eksekusi di Pengadilan Agama Surabaya." },
+    // No. 2
     { nomor: "535/Pdt.G/2013/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2013", status: "selesai", hasil: "Menang / Berkekuatan Hukum Tetap", deskripsi: "Perkara perbuatan melanggar hukum yang dimenangkan dan telah berkekuatan hukum tetap di Pengadilan Negeri Surabaya." },
+    // No. 3
     { nomor: "LP/885/B/VIII/2013/Restabes Sby", jenis: "Hukum Pidana", tahun: "2013", status: "selesai", hasil: "Gelar Perkara", deskripsi: "Perkara pidana yang diselesaikan melalui gelar perkara di Polda Jatim." },
+    // No. 4
     { nomor: "5945/Pdt.G/2014/PA.Sby", jenis: "Perlawanan", tahun: "2014", status: "selesai", hasil: "Menang", deskripsi: "Perkara perlawanan yang dimenangkan di Pengadilan Agama Surabaya." },
-    // 98/Pdt.G/2014/PN.Jmr — DIHAPUS
+    // No. 5
     { nomor: "190/Pdt.G/2014/PN.Sby", jenis: "Wanprestasi", tahun: "2014", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Negeri Surabaya." },
+    // No. 6
     { nomor: "472/Pdt.G/2014/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2014", status: "selesai", hasil: "Dading/Damai", deskripsi: "Perkara perbuatan melanggar hukum yang diselesaikan secara damai di Pengadilan Negeri Surabaya." },
-    // 22/Pdt.G/2015/PN.JBG — DIHAPUS
+    // No. 7
     { nomor: "36/Pdt.G/2015/PN.Sbr", jenis: "Perbuatan Melanggar Hukum", tahun: "2015", status: "selesai", hasil: "Menang", deskripsi: "Perkara perbuatan melanggar hukum yang dimenangkan di Pengadilan Negeri Sumber, Cirebon." },
+    // No. 8
     { nomor: "50/Pdt.G/2015/PN.JBG", jenis: "Wanprestasi", tahun: "2015", status: "selesai", hasil: "Dading/Damai", deskripsi: "Perkara wanprestasi yang diselesaikan secara damai di Pengadilan Negeri Jombang." },
+    // No. 9
     { nomor: "110/G/2015/PTUN.Sby", jenis: "Sengketa Tanah", tahun: "2015", status: "selesai", hasil: "Kasus Menang", deskripsi: "Sengketa tanah yang dimenangkan di Pengadilan Tata Usaha Negara Surabaya." },
+    // No. 10
     { nomor: "231/Pdt.G/2015/PTA.Sby", jenis: "Sengketa Waris/Perlawanan", tahun: "2015", status: "selesai", hasil: "Menang", deskripsi: "Sengketa waris yang dimenangkan di Pengadilan Tinggi Agama Surabaya." },
+    // No. 11
     { nomor: "LP/215/V/2015/Jatim/Res JBG", jenis: "Hukum Pidana", tahun: "2015", status: "selesai", hasil: "Damai/SP3", deskripsi: "Perkara pidana yang diselesaikan dengan SP3 di Polres Jombang." },
-    // LPB/1380/IX/2015/UM/Jatim — DIHAPUS
+    // No. 12
     { nomor: "LPB/1404/IX/2015/UM/Jatim", jenis: "Hukum Pidana", tahun: "2015", status: "selesai", hasil: "SP3", deskripsi: "Perkara pidana yang dihentikan dengan SP3 di Polda Jatim." },
+    // No. 13
     { nomor: "07/PDT/2016/PT.Sby", jenis: "Wanprestasi", tahun: "2016", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Tinggi Surabaya." },
+    // No. 14
     { nomor: "176/PDT/2016/PT.BDG", jenis: "Wanprestasi", tahun: "2016", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Tinggi Bandung." },
+    // No. 15
     { nomor: "Lutfi Herdyansah", jenis: "Hukum Perbankan", tahun: "2016", status: "selesai", hasil: "Klaim Nasabah", deskripsi: "Penanganan klaim nasabah perbankan di Jakarta." },
+    // No. 16
     { nomor: "CV. Logam Abadi", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan", hasil: "Konsultan", deskripsi: "Konsultan hukum untuk CV. Logam Abadi di Jombang." },
+    // No. 17
     { nomor: "PT. Barokta Fina", jenis: "Hukum Perseroan", tahun: "2016", status: "berjalan", hasil: "Konsultan Hukum", deskripsi: "Konsultan hukum perseroan untuk PT. Barokta Fina di Jombang." },
+    // No. 18
     { nomor: "Yayasan Kyai Mojo", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan", hasil: "Konsultan Hukum", deskripsi: "Konsultan hukum untuk Yayasan Kyai Mojo di Jombang." },
+    // No. 19
     { nomor: "PT. Chal Jaya", jenis: "Hukum Perdata", tahun: "2016", status: "berjalan", hasil: "Konsultan Hukum", deskripsi: "Konsultan hukum untuk PT. Chal Jaya di Surabaya." },
+    // No. 20
     { nomor: "PT. BPRS Kota Mojokerto", jenis: "Somasi, Non Litigasi, Litigasi, Sengketa Ekonomi Syariah", tahun: "2016", status: "selesai", hasil: "Penyelesaian Sengketa Kredit", deskripsi: "Penyelesaian sengketa kredit di Mojokerto, Mojosari, Pasuruan, Pandaan, Jombang." },
+    // No. 21
     { nomor: "PT. BMH Technologies (PMA)", jenis: "Legal Opinion", tahun: "2016", status: "selesai", hasil: "Konsultasi", deskripsi: "Pemberian legal opinion untuk PT. BMH Technologies di Surabaya." },
+    // No. 22
     { nomor: "Kiyoyuki Takeda (PMA)", jenis: "Legal Opinion -- Legal Audit", tahun: "2016", status: "selesai", hasil: "Konsultasi", deskripsi: "Pemberian legal opinion dan legal audit untuk Kiyoyuki Takeda di Jakarta." },
+    // No. 23
     { nomor: "CV. Prima Karya", jenis: "Legal Opinion", tahun: "2016", status: "selesai", hasil: "Konsultasi", deskripsi: "Pemberian legal opinion untuk CV. Prima Karya di Kediri." },
+    // No. 24
     { nomor: "Ny. Sriyatun", jenis: "Somasi", tahun: "2016", status: "selesai", hasil: "Advokasi", deskripsi: "Penanganan somasi dan advokasi untuk Ny. Sriyatun di Surabaya-Ngawi." },
+    // No. 25
     { nomor: "K/LP/275/XII/2016/Jatim/SPK", jenis: "Hukum Pidana", tahun: "2016", status: "selesai", hasil: "SP3", deskripsi: "Perkara pidana yang dihentikan dengan SP3 di Blitar." },
+    // No. 26
     { nomor: "3339 K/PDT/2016", jenis: "Hukum Perdata", tahun: "2016", status: "selesai", hasil: "Damai", deskripsi: "Perkara perdata yang diselesaikan secara damai di Mahkamah Agung." },
+    // No. 27
     { nomor: "301 K/AG/2016", jenis: "Hukum Waris", tahun: "2016", status: "selesai", hasil: "Menang", deskripsi: "Perkara waris yang dimenangkan di Mahkamah Agung." },
+    // No. 28
     { nomor: "214/PDT/2016/PT.Sby", jenis: "Hukum Perdata", tahun: "2016", status: "selesai", hasil: "Damai", deskripsi: "Perkara perdata yang diselesaikan secara damai di Pengadilan Tinggi Surabaya." },
+    // No. 29
     { nomor: "13/Pdt.G/2017/PN.Bil", jenis: "Hukum Perbankan", tahun: "2017", status: "selesai", hasil: "Damai (dengan LPS)", deskripsi: "Perkara perbankan yang diselesaikan secara damai dengan LPS di Pengadilan Negeri Bangil." },
+    // No. 30
     { nomor: "M. Lutfi Shofiq, Dkk", jenis: "Hukum Perdata -- Agraria", tahun: "2017", status: "selesai", hasil: "Damai", deskripsi: "Sengketa agraria yang diselesaikan secara damai di Pengadilan Tinggi Surabaya." },
+    // No. 31
     { nomor: "LPB/239/II/2017/UM/Jatim", jenis: "Hukum Pidana", tahun: "2017", status: "selesai", hasil: "Terpidana", deskripsi: "Perkara pidana yang telah diputus di Polda Jatim." },
+    // No. 32
     { nomor: "LPB/271/III/2017/UM/Jatim", jenis: "Hukum Pidana", tahun: "2017", status: "selesai", hasil: "Terpidana", deskripsi: "Perkara pidana yang telah diputus di Polda Jatim." },
+    // No. 33
     { nomor: "627/Pdt.G/2017/PN.Sby", jenis: "Perbuatan Melanggar Hukum", tahun: "2017", status: "selesai", hasil: "Menang", deskripsi: "Perkara perbuatan melanggar hukum yang dimenangkan di Pengadilan Negeri Surabaya." },
+    // No. 34
     { nomor: "LP/83/V/2017/Jatim/Res.SPG", jenis: "Hukum Pidana", tahun: "2017", status: "selesai", hasil: "Damai", deskripsi: "Perkara pidana yang diselesaikan secara damai di Polda Jatim." },
+    // No. 35
     { nomor: "283/Pdt/2018/PT.Sby", jenis: "Hukum Perdata", tahun: "2018", status: "selesai", hasil: "Menang", deskripsi: "Perkara perdata yang dimenangkan di Pengadilan Tinggi Surabaya." },
+    // No. 36
     { nomor: "Tn. Fauzi dan Ny. Inayah", jenis: "Hukum Perdata", tahun: "2018", status: "selesai", hasil: "Advokasi ke PT. KAI", deskripsi: "Advokasi perkara perdata ke PT. KAI untuk Tn. Fauzi dan Ny. Inayah di Surabaya." },
+    // No. 37
     { nomor: "Cawali-Cawawali Mojokerto 2018", jenis: "Hukum Pemilu dan Administrasi Daerah", tahun: "2018", status: "selesai", hasil: "Pilkada Mojokerto Tahun 2018", deskripsi: "Penanganan perkara hukum pemilu untuk Pilkada Mojokerto 2018." },
+    // No. 38
     { nomor: "Ny. Mimik Lestari, S.H.", jenis: "Hukum Pemilu", tahun: "2018", status: "selesai", hasil: "Tidak Cukup Bukti", deskripsi: "Perkara hukum pemilu yang dihentikan karena tidak cukup bukti di Panwaslu." },
+    // No. 39
     { nomor: "Ny. Suratmi", jenis: "Hukum Perbankan", tahun: "2018", status: "selesai", hasil: "Somasi", deskripsi: "Penanganan somasi untuk Ny. Suratmi di Surabaya." },
+    // No. 40
     { nomor: "332/Pdt.G/2018/PN.Sby", jenis: "Hukum Perdata", tahun: "2018", status: "selesai", hasil: "Menang", deskripsi: "Perkara perdata yang dimenangkan di Pengadilan Negeri Surabaya." },
+    // No. 41
     { nomor: "H. Kaselan", jenis: "Hukum Perbankan dan Likuidasi", tahun: "2018", status: "selesai", hasil: "Pemohon", deskripsi: "Penanganan perkara perbankan dan likuidasi untuk H. Kaselan di Pasuruan." },
+    // No. 42
     { nomor: "PT. Saranabhakti Timur", jenis: "Perbuatan Melawan Hukum", tahun: "2018", status: "selesai", hasil: "Menang Upaya Kasasi", deskripsi: "Perkara perbuatan melawan hukum yang dimenangkan di Mahkamah Agung untuk PT. Saranabhakti Timur." },
+    // No. 43
     { nomor: "195/Pdt.G/2019/PN.Sda", jenis: "Wanprestasi", tahun: "2019", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Negeri Surabaya." },
+    // No. 44
     { nomor: "502/Pdt.G/2019/PN.Smg", jenis: "Wanprestasi", tahun: "2019", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Negeri Semarang." },
-    // 1213/Pdt.G/2019/PN.Sby — DIHAPUS
+    // No. 45
     { nomor: "751/Pid.B/2020/PN.Sby", jenis: "Hukum Pidana", tahun: "2020", status: "selesai", hasil: "Putusan", deskripsi: "Perkara pidana yang telah diputus di Pengadilan Negeri Surabaya." },
+    // No. 46
     { nomor: "781 K/PDT/2020", jenis: "Hukum Perdata", tahun: "2020", status: "selesai", hasil: "Menang", deskripsi: "Perkara perdata yang dimenangkan di Mahkamah Agung." },
+    // No. 47
     { nomor: "272/Pdt.G/2020/PN.Sby", jenis: "Wanprestasi", tahun: "2020", status: "selesai", hasil: "Menang", deskripsi: "Perkara wanprestasi yang dimenangkan di Pengadilan Negeri Surabaya." },
+    // No. 48
     { nomor: "Indra Dyantokoh, Dkk", jenis: "Perselisihan Hubungan Industrial", tahun: "2020", status: "selesai", hasil: "Perdamaian (Disnaker Surabaya)", deskripsi: "Perselisihan hubungan industrial yang diselesaikan secara perdamaian di Disnaker Surabaya." },
+    // No. 49
     { nomor: "Edi Setyawan (Polres KP3 Tj. Perak)", jenis: "Hukum Pidana Ps. 303 KUHPidana", tahun: "2020", status: "selesai", hasil: "Tersangka", deskripsi: "Perkara pidana Pasal 303 KUHP di Polres KP3 Tanjung Perak Surabaya." },
+    // No. 50
     { nomor: "Edi Setyawan (Polda Jatim)", jenis: "Hukum Pidana", tahun: "2020", status: "selesai", hasil: "Tersangka", deskripsi: "Perkara pidana di Polda Jatim." },
+    // No. 51
     { nomor: "PT. Lintasbangun Persadajaya", jenis: "Layanan In House Lawyer", tahun: "2021", status: "berjalan", hasil: "Menangani seluruh permasalahan hukum litigasi & non litigasi", deskripsi: "Layanan in house lawyer untuk PT. Lintasbangun Persadajaya, distributor Semen Indonesia Jatim." },
+    // No. 52
     { nomor: "5549/Pdt.G/2022/PA.Sby", jenis: "Gugatan Pembagian Harta Waris", tahun: "2022", status: "selesai", hasil: "Menang", deskripsi: "Gugatan pembagian harta waris yang dimenangkan di Pengadilan Agama Surabaya." }
-];
-
-// ============================================================
-// DATA BIDANG KEAHLIAN DENGAN DESKRIPSI
-// ============================================================
-const practiceAreas = [
-    { id: "01", name: "Hukum Perikatan & Hukum Benda", desc: "Mengatur hubungan hukum antar pihak, termasuk perjanjian, utang-piutang, dan hak kepemilikan barang." },
-    { id: "02", name: "Hukum Perdata Bisnis", desc: "Menyangkut sengketa bisnis, wanprestasi, dan pelanggaran kontrak dagang antar perusahaan." },
-    { id: "03", name: "Hukum Pidana", desc: "Penanganan perkara pidana umum, pidana korporasi, dan tindak pidana khusus sesuai KUHP." },
-    { id: "04", name: "Hukum Administrasi & Perijinan", desc: "Mengurus perijinan usaha, izin operasional, dan sengketa dengan instansi pemerintah." },
-    { id: "05", name: "Hukum Perseroan / Perusahaan", desc: "Pendirian perusahaan, perubahan anggaran dasar, hingga likuidasi dan merger." },
-    { id: "06", name: "Hukum Kepailitan & PKPU", desc: "Penanganan perkara kepailitan dan Penundaan Kewajiban Pembayaran Utang (PKPU)." },
-    { id: "07", name: "Hak Atas Kekayaan Intelektual", desc: "Perlindungan hak cipta, merek, paten, desain industri, dan rahasia dagang." },
-    { id: "08", name: "Hukum Pertanahan", desc: "Sengketa tanah, sertifikasi, hak atas tanah, dan perkara agraria lainnya." },
-    { id: "09", name: "Hukum Perbankan & Pembiayaan", desc: "Perkara kredit macet, pembiayaan, dan sengketa dengan lembaga keuangan." },
-    { id: "10", name: "Hukum Perlindungan Konsumen", desc: "Perlindungan hak-hak konsumen dan sengketa dengan pelaku usaha." },
-    { id: "11", name: "Hukum Penanaman Modal", desc: "Konsultasi dan pendampingan investasi, PMA, dan PMDN sesuai regulasi." },
-    { id: "12", name: "Hukum Dagang & Pengangkutan", desc: "Sengketa dagang, pengiriman barang, dan asuransi pengangkutan." },
-    { id: "13", name: "Hukum Persaingan Usaha", desc: "Perkara monopoli, kartel, dan persaingan usaha tidak sehat lainnya." },
-    { id: "14", name: "Hukum Perburuhan / Ketenagakerjaan", desc: "Penyelesaian PHK, perselisihan hubungan industrial, dan hak-hak pekerja." },
-    { id: "15", name: "Hukum Waris", desc: "Pembagian harta waris, sengketa warisan, dan penetapan ahli waris." },
-    { id: "16", name: "Penyelesaian Sengketa Alternatif", desc: "Mediasi, arbitrase, dan negosiasi di luar jalur litigasi pengadilan." }
 ];
 
 // ============================================================
