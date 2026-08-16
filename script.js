@@ -108,6 +108,67 @@ const cases = [
     { nomor: "5549/Pdt.G/2022/PA.Sby", jenis: "Gugatan Pembagian Harta Waris", tahun: "2022", status: "selesai", hasil: "Menang", deskripsi: "Gugatan pembagian harta waris yang dimenangkan di Pengadilan Agama Surabaya." }
 ];
 
+
+
+// ============================================================
+// DATA BIDANG KEAHLIAN DENGAN DESKRIPSI
+// ============================================================
+const practiceAreas = [
+    { id: "01", name: "Hukum Perikatan & Hukum Benda", desc: "Mengatur hubungan hukum antar pihak, termasuk perjanjian, utang-piutang, dan hak kepemilikan barang." },
+    { id: "02", name: "Hukum Perdata Bisnis", desc: "Menyangkut sengketa bisnis, wanprestasi, dan pelanggaran kontrak dagang antar perusahaan." },
+    { id: "03", name: "Hukum Pidana", desc: "Penanganan perkara pidana umum, pidana korporasi, dan tindak pidana khusus sesuai KUHP." },
+    { id: "04", name: "Hukum Administrasi & Perijinan", desc: "Mengurus perijinan usaha, izin operasional, dan sengketa dengan instansi pemerintah." },
+    { id: "05", name: "Hukum Perseroan / Perusahaan", desc: "Pendirian perusahaan, perubahan anggaran dasar, hingga likuidasi dan merger." },
+    { id: "06", name: "Hukum Kepailitan & PKPU", desc: "Penanganan perkara kepailitan dan Penundaan Kewajiban Pembayaran Utang (PKPU)." },
+    { id: "07", name: "Hak Atas Kekayaan Intelektual", desc: "Perlindungan hak cipta, merek, paten, desain industri, dan rahasia dagang." },
+    { id: "08", name: "Hukum Pertanahan", desc: "Sengketa tanah, sertifikasi, hak atas tanah, dan perkara agraria lainnya." },
+    { id: "09", name: "Hukum Perbankan & Pembiayaan", desc: "Perkara kredit macet, pembiayaan, dan sengketa dengan lembaga keuangan." },
+    { id: "10", name: "Hukum Perlindungan Konsumen", desc: "Perlindungan hak-hak konsumen dan sengketa dengan pelaku usaha." },
+    { id: "11", name: "Hukum Penanaman Modal", desc: "Konsultasi dan pendampingan investasi, PMA, dan PMDN sesuai regulasi." },
+    { id: "12", name: "Hukum Dagang & Pengangkutan", desc: "Sengketa dagang, pengiriman barang, dan asuransi pengangkutan." },
+    { id: "13", name: "Hukum Persaingan Usaha", desc: "Perkara monopoli, kartel, dan persaingan usaha tidak sehat lainnya." },
+    { id: "14", name: "Hukum Perburuhan / Ketenagakerjaan", desc: "Penyelesaian PHK, perselisihan hubungan industrial, dan hak-hak pekerja." },
+    { id: "15", name: "Hukum Waris", desc: "Pembagian harta waris, sengketa warisan, dan penetapan ahli waris." },
+    { id: "16", name: "Penyelesaian Sengketa Alternatif", desc: "Mediasi, arbitrase, dan negosiasi di luar jalur litigasi pengadilan." }
+];
+
+// ============================================================
+// RENDER PRACTICE AREAS DENGAN TOOLTIP
+// ============================================================
+function renderPracticeAreas() {
+    const grid = document.getElementById('practiceGrid');
+    console.log('practiceGrid ditemukan:', grid); // Debugging
+    
+    if (!grid) {
+        console.error('Element #practiceGrid tidak ditemukan!');
+        return;
+    }
+
+    grid.innerHTML = practiceAreas.map(item => `
+        <div class="practice-item">
+            <div class="practice-card">
+                <span class="practice-number">${item.id}</span>
+                <h3 class="practice-title">${item.name}</h3>
+                <a href="#" class="practice-link">Selengkapnya →</a>
+            </div>
+            <div class="practice-tooltip">${item.desc}</div>
+        </div>
+    `).join('');
+
+    console.log('Practice Areas berhasil di-render!');
+}
+
+// ============================================================
+// PASTIKAN FUNGSI DIPANGGIL
+// ============================================================
+// Panggil langsung setelah definisi (tanpa menunggu DOMContentLoaded)
+renderPracticeAreas();
+
+// Juga panggil saat DOM siap (sebagai cadangan)
+document.addEventListener('DOMContentLoaded', function() {
+    renderPracticeAreas();
+});
+
 // ============================================================
 // RENDER PRACTICE AREAS DENGAN TOOLTIP
 // ============================================================
